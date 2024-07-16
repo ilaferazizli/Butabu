@@ -6,42 +6,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity_oyun">
+
     <ImageView
         android:id="@+id/back_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/back_back"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp"
-        />
+        android:background="@drawable/back_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/pause_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
+        android:background="@drawable/pause_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        />
-<TextView
-    android:id="@+id/time_circle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/time_circle"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:padding="30dp"
-    android:text="60"
-    android:textSize="20sp"
-    />
+    <TextView
+        android:id="@+id/time_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/time_circle"
+        android:padding="30dp"
+        android:text="60"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pause" />
+
+    <TextView
+        android:id="@+id/team_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/green"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/time_circle"
+        app:layout_constraintEnd_toEndOf="@+id/back_back"
+        app:layout_constraintStart_toStartOf="@+id/back_back"
+        app:layout_constraintTop_toBottomOf="@id/back_back" />
+
+    <TextView
+        android:id="@+id/team_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textColor="@color/red"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/time_circle"
+        app:layout_constraintEnd_toEndOf="@+id/pause"
+        app:layout_constraintStart_toStartOf="@+id/pause"
+        app:layout_constraintTop_toBottomOf="@id/pause" />
+
+    <ImageView
+        android:id="@+id/back_back_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/bi_arrow_left__2_"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/spiderman"
+        app:layout_constraintStart_toStartOf="@id/spiderman"
+        app:layout_constraintTop_toTopOf="@id/spiderman" />
+
     <TextView
         android:id="@+id/spiderman"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="48dp"
         android:background="@drawable/linear3_bg"
         android:padding="10dp"
         android:text="Spiderman"
@@ -54,11 +91,12 @@
 
 
         app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout_oyun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="48dp"
         android:background="@drawable/layout4_bg"
         android:gravity="center"
         android:orientation="vertical"
@@ -66,36 +104,36 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hörümçək"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Super qəhrəman"
-            android:textSize="25sp"
             android:padding="8dp"
-            />
+            android:text="Super qəhrəman"
+            android:textSize="25sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:text="Tor"
             android:textSize="25sp"
-            android:padding="8dp"
 
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:text="Qırmızı"
             android:textSize="25sp"
-            android:padding="8dp"
 
             />
 
@@ -103,7 +141,90 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adam"
-            android:textSize="25sp"
-            />
+            android:textSize="25sp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/exit_icon_3time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/oyun_exit_3"
+        android:padding="16dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/back_back"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun" />
+
+    <TextView
+        android:id="@+id/exit_icon_3time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/oyun_exit_3_right"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exit_icon_3time"
+        app:layout_constraintStart_toEndOf="@id/exit_icon_3time"
+        app:layout_constraintTop_toTopOf="@+id/exit_icon_3time" />
+
+    <ImageView
+        android:id="@+id/next_icon_3time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/next_icon_3time_"
+        android:backgroundTint="@color/blue"
+        android:padding="16dp"
+        android:src="@drawable/vector__1_"
+        app:layout_constraintBottom_toBottomOf="@id/exit_icon_3time"
+        app:layout_constraintEnd_toStartOf="@+id/next_icon_3time_right"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exit_icon_3time"
+
+        />
+
+    <TextView
+        android:id="@+id/next_icon_3time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/next_icon_3time_right_"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/next_icon_3time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/next_icon_3time"
+        app:layout_constraintTop_toTopOf="@+id/next_icon_3time" />
+
+    <ImageView
+        android:id="@+id/okey_icon_3time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/okey_icon_3"
+        android:backgroundTint="@color/green"
+        android:padding="16dp"
+        android:src="@drawable/vector__2_"
+        app:layout_constraintBottom_toBottomOf="@id/next_icon_3time"
+        app:layout_constraintEnd_toStartOf="@+id/okey_icon_3time_right"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
+
+        app:layout_constraintTop_toTopOf="@id/next_icon_3time" />
+
+    <TextView
+        android:id="@+id/okey_icon_3time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/okey_icon_3time_right"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/next_icon_3time"
+        app:layout_constraintEnd_toEndOf="@+id/pause"
+        app:layout_constraintTop_toTopOf="@+id/next_icon_3time" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
