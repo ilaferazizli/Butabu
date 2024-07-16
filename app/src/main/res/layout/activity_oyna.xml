@@ -21,24 +21,26 @@
         android:background="@drawable/linear_bg"
         >
     <TextView
+        android:id="@+id/sade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="Sadə"
         android:textStyle="bold"
-        android:padding="16dp"
+        android:padding="10dp"
         android:textAlignment="center"
         android:background="@drawable/backround"
 
 
         />
         <TextView
+            android:id="@+id/orta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="Orta"
             android:textStyle="bold"
-            android:padding="16dp"
+            android:padding="10dp"
             android:textAlignment="center"
             android:background="@drawable/backround"
             android:layout_marginTop="10dp"
@@ -51,7 +53,7 @@
             android:textSize="20sp"
             android:text="Çətin"
             android:textStyle="bold"
-            android:padding="16dp"
+            android:padding="10dp"
             android:textAlignment="center"
             android:background="@drawable/backround"
             android:layout_marginTop="10dp"
@@ -62,13 +64,14 @@
             android:textSize="20sp"
             android:text="Parametrlər"
             android:textStyle="bold"
-            android:padding="16dp"
+            android:padding="10dp"
             android:textAlignment="center"
             android:background="@drawable/backround"
             android:layout_marginTop="40dp"
-
-
-
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             />
     </LinearLayout>
 
