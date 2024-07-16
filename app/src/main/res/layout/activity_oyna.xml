@@ -7,4 +7,69 @@
     android:layout_height="match_parent"
     tools:context=".OynaActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:padding="32dp"
+        android:layout_marginHorizontal="48dp"
+        android:background="@drawable/linear_bg"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Sadə"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:background="@drawable/backround"
+
+
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Orta"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/backround"
+            android:layout_marginTop="10dp"
+
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Çətin"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/backround"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Parametrlər"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:background="@drawable/backround"
+            android:layout_marginTop="40dp"
+
+
+
+            />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
