@@ -6,4 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/app_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ImageButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_play"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="28dp"
+        android:background="@drawable/linear_bg"
+        app:layout_constraintEnd_toStartof=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <ImageButton
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_play"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="28dp"
+        android:background="@drawable/linear_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@id/play" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
