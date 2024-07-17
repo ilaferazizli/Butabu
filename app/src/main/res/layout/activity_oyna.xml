@@ -5,13 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OynaActivity">
+    tools:context=".OynaActivity"
+    android:background="@drawable/gradiient_color">
 
     <ImageView
         android:id="@+id/silinecek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/applogo_silinecek"
+        android:background="@drawable/image_taboola"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
         android:background="@drawable/linear_bg"
+        android:backgroundTint="@color/benovse"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp"
@@ -46,7 +48,6 @@
             android:padding="6dp"
             android:text="Sadə"
             android:textAlignment="center"
-            android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -54,12 +55,11 @@
             android:id="@+id/orta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/backround"
             android:padding="6dp"
             android:text="Orta"
             android:textAlignment="center"
-            android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold"
 
@@ -75,7 +75,6 @@
             android:padding="6dp"
             android:text="Çətin"
             android:textAlignment="center"
-            android:textColor="@color/blue"
             android:textSize="20sp"
             android:textStyle="bold"
 
@@ -87,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/backround"
-            android:backgroundTint="@color/dark_blue"
+            android:backgroundTint="@color/dark_parametr"
             android:padding="6dp"
             android:text="Parametrlər"
             android:textAlignment="center"
