@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_oyunbitdi">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Komanda 1"
+        android:textColor="@color/blue"
+        android:textSize="32sp"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@+id/silinecek"
+        app:layout_constraintEnd_toEndOf="@+id/silinecek"
+        app:layout_constraintStart_toStartOf="@+id/silinecek"
+        />
+    <TextView
+        android:id="@+id/oyun_bitdi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oyun Bitdi!"
+        android:textColor="@color/benovse"
+        android:textSize="44sp"
+        android:textStyle="bold"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/round_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Round 4/4"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/oyun_bitdi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"
+        />
+    <ImageView
+        android:id="@+id/silinecek"
+        android:layout_width="196dp"
+        android:layout_height="196dp"
+        android:background="@drawable/kupa_image"
+        app:layout_constraintTop_toBottomOf="@id/round_"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="exit"
+        android:layout_marginTop="48dp"/>
+
+
+    <ImageView
+        android:id="@+id/exit_icon_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/x_in_linear"
+        android:padding="12dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toTopOf="@+id/komanda_1_exit"
+        app:layout_constraintEnd_toStartOf="@+id/next_icon_score"
+        app:layout_constraintStart_toEndOf="@+id/komanda_1"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/next_icon_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/x_in_linear"
+        android:backgroundTint="@color/benovse"
+        android:padding="12dp"
+        android:src="@drawable/vector__1_"
+        app:layout_constraintBottom_toTopOf="@+id/komanda_1_next"
+        app:layout_constraintEnd_toStartOf="@+id/okey_icon_score"
+        app:layout_constraintStart_toEndOf="@+id/exit_icon_score" />
+
+    <ImageView
+        android:id="@+id/okey_icon_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/x_in_linear"
+        android:backgroundTint="@color/green"
+        android:padding="12dp"
+        android:src="@drawable/vector__2_"
+        app:layout_constraintBottom_toTopOf="@+id/komanda_1_okey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/next_icon_score" />
+
+    <TextView
+        android:id="@+id/komanda_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Komanda 1"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/exit_icon_score"
+
+        />
+
+    <TextView
+        android:id="@+id/komanda_1_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100"
+        android:textAlignment="textStart"
+        android:textColor="@color/red"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/exit_icon_score"
+        app:layout_constraintStart_toStartOf="@+id/exit_icon_score"
+        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+
+    <TextView
+        android:id="@+id/komanda_1_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        android:textAlignment="textStart"
+        android:textColor="@color/benovse"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/next_icon_score"
+        app:layout_constraintStart_toStartOf="@+id/next_icon_score"
+        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+
+    <TextView
+        android:id="@+id/komanda_1_okey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15"
+        android:textAlignment="textStart"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/okey_icon_score"
+        app:layout_constraintStart_toStartOf="@+id/okey_icon_score"
+        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+
+    <TextView
+        android:id="@+id/komanda_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Komanda 2"
+        android:textAlignment="textStart"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/komanda_1"
+        app:layout_constraintStart_toStartOf="@+id/komanda_1"
+
+        app:layout_constraintTop_toBottomOf="@id/komanda_1" />
+
+    <TextView
+        android:id="@+id/komanda_2_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="7"
+        android:textAlignment="textStart"
+        android:textColor="@color/red"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/komanda_1_exit"
+        app:layout_constraintStart_toStartOf="@+id/komanda_1_exit"
+        app:layout_constraintTop_toBottomOf="@id/komanda_1_exit"
+
+        />
+
+    <TextView
+        android:id="@+id/komanda_2_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="10"
+        android:textAlignment="textStart"
+        android:textColor="@color/benovse"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/komanda_1_next"
+        app:layout_constraintStart_toStartOf="@+id/komanda_1_next"
+        app:layout_constraintTop_toBottomOf="@id/komanda_1_next" />
+
+    <TextView
+        android:id="@+id/komanda_2_okey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="15"
+        android:textAlignment="textStart"
+        android:textColor="@color/green"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/komanda_1_okey"
+        app:layout_constraintStart_toStartOf="@+id/komanda_1_okey"
+        app:layout_constraintTop_toBottomOf="@id/komanda_1_okey" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

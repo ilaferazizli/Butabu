@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Butabu"
         tools:targetApi="31">
         <activity
+            android:name=".Activity_neticeler"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_solo_oyun"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_oyunbitdi"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_kateqoriyalar"
+            android:exported="false" />
+        <activity
+            android:name=".activity_parametrler"
+            android:exported="false" />
+        <activity
             android:name=".activity_vaxt"
             android:exported="false" />
         <activity
