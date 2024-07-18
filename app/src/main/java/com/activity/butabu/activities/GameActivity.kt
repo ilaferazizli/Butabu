@@ -9,13 +9,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.activity.butabu.CustomCountDownTimer
 import com.activity.butabu.R
-import com.activity.butabu.databinding.ActivityOyunBinding
-import com.activity.butabu.databinding.ActivityVaxtBinding
+import com.activity.butabu.databinding.ActivityGameBinding
+import com.activity.butabu.databinding.AlertGameOverBinding
 import kotlin.math.roundToInt
 
 
 class GameActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityOyunBinding
+    private lateinit var binding: ActivityGameBinding
 
     private var countDownTime=60
     private var clockTime = (countDownTime * 1000).toLong()
@@ -30,13 +30,13 @@ class GameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_oyun)
+        setContentView(R.layout.activity_game)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding = ActivityOyunBinding.inflate(layoutInflater)
+        binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
         customCountDownTimer= object : CustomCountDownTimer(5000, 1000){}
         setupListeners()
@@ -98,7 +98,7 @@ class GameActivity : AppCompatActivity() {
     private fun showAlert() {
         var alertDialog: AlertDialog? = null
         val builder = AlertDialog.Builder(this)
-        val view = ActivityVaxtBinding.inflate(layoutInflater)
+        val view = AlertGameOverBinding.inflate(layoutInflater)
         builder.setView(view.root)
 
         view.basla.setOnClickListener {
@@ -106,6 +106,7 @@ class GameActivity : AppCompatActivity() {
             customCountDownTimer.restart()
         }
         alertDialog = builder.create()
+        alertDialog.window?.setBackgroundDrawableResource(R.drawable.bg_result_stroke)
         alertDialog.show()
     }
 
