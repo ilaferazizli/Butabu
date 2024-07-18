@@ -25,7 +25,7 @@
         android:background="@drawable/ic_pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/linear_spiderman"/>
+        />
     <ImageView
         android:id="@+id/play"
         android:layout_width="wrap_content"
@@ -34,8 +34,7 @@
         android:visibility="gone"
         android:background="@drawable/ic_resume"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/dark_pink"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ProgressBar
         android:id="@+id/countTime"
@@ -69,7 +68,7 @@
         android:textColor="@color/green"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/spiderman"
+        app:layout_constraintBottom_toTopOf="@+id/main_word"
         app:layout_constraintEnd_toEndOf="@+id/back_back"
         app:layout_constraintStart_toStartOf="@+id/back_back"
         app:layout_constraintTop_toBottomOf="@id/back_back" />
@@ -82,7 +81,7 @@
         android:textColor="@color/red"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/spiderman"
+        app:layout_constraintBottom_toTopOf="@+id/main_word"
         app:layout_constraintEnd_toEndOf="@+id/pause"
         app:layout_constraintStart_toStartOf="@+id/pause"
         app:layout_constraintTop_toBottomOf="@id/pause" />
@@ -94,12 +93,12 @@
         android:layout_margin="16dp"
         android:background="@drawable/ic_back_white"
         android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="@id/spiderman"
-        app:layout_constraintStart_toStartOf="@id/spiderman"
-        app:layout_constraintTop_toTopOf="@id/spiderman" />
+        app:layout_constraintBottom_toBottomOf="@id/main_word"
+        app:layout_constraintStart_toStartOf="@id/main_word"
+        app:layout_constraintTop_toTopOf="@id/main_word" />
 
     <TextView
-        android:id="@+id/spiderman"
+        android:id="@+id/main_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="64dp"

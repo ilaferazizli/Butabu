@@ -9,11 +9,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.activity.butabu.CustomAlertDialog
 import com.activity.butabu.CustomCountDownTimer
+import com.activity.butabu.Database
 import com.activity.butabu.R
 import com.activity.butabu.objects.WordCounts.cancelledWord
 import com.activity.butabu.objects.WordCounts.nextWord
 import com.activity.butabu.objects.WordCounts.correctWord
 import com.activity.butabu.databinding.ActivityGameBinding
+import com.activity.butabu.objects.Rounds
+import com.activity.butabu.objects.Team1
+import com.activity.butabu.objects.Team2
 import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
@@ -25,8 +29,10 @@ class GameActivity : AppCompatActivity() {
     private val onBackPressCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             onBackPressedCustom()
+            resetValues()
         }
     }
+    private var database=Database()
     private lateinit var customAlertDialog: CustomAlertDialog
     private lateinit var customCountDownTimer: CustomCountDownTimer
 
@@ -44,8 +50,13 @@ class GameActivity : AppCompatActivity() {
         customCountDownTimer= object : CustomCountDownTimer(60000, 1000){}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
+        database.createSQLdb(this)
+        database.readSQLdb(this)
+        generateWords()
+
         setupListeners()
         setupTimer()
+
         countWord(binding.cancel, binding.cancelCount)
         countWord(binding.next, binding.nextCount)
         countWord(binding.done, binding.doneCount)
@@ -87,6 +98,9 @@ class GameActivity : AppCompatActivity() {
             changeCountTimeColor(R.color.green)
             syncWithTimer(0)
             customAlertDialog.showGameOverDialog()
+            binding.cancelCount.text=0.toString()
+            binding.nextCount.text=0.toString()
+            binding.doneCount.text=0.toString()
         }
         binding.countTime.max=progressTime.toInt()
         binding.countTime.progress=progressTime.toInt()
@@ -101,6 +115,7 @@ class GameActivity : AppCompatActivity() {
 
         binding.backBack.setOnClickListener {
             finish()
+            resetValues()
         }
         binding.pause.setOnClickListener {
             customCountDownTimer.pauseTimer()
@@ -123,6 +138,7 @@ class GameActivity : AppCompatActivity() {
     }
     private fun countWord(button:View, text: TextView,){
         button.setOnClickListener{
+            generateWords()
             when(button.id){
                 R.id.cancel -> {
                     cancelledWord++
@@ -133,11 +149,42 @@ class GameActivity : AppCompatActivity() {
                     text.text = nextWord.toString()
                 }
                 R.id.done -> {
+                    if(!Team1.played){
+                        Team1.totalCorrect++
+                        binding.team1.text = Team1.totalCorrect.toString()
+                    }
+                    else{
+                        Team2.totalCorrect++
+                        binding.team2.text = Team2.totalCorrect.toString()
+                    }
                     correctWord++
                     text.text = correctWord.toString()
                 }
             }
         }
+    }
+    private fun resetValues(){
+        cancelledWord=0
+        nextWord=0
+        correctWord=0
+        Team1.totalCancelled=0
+        Team1.totalCorrect=0
+        Team1.totalNext=0
+        Team2.totalCancelled=0
+        Team2.totalCorrect=0
+        Team2.totalNext=0
+        Team1.played=false
+        Team2.played=false
+        Rounds.roundCurrent=1
+    }
+    private fun generateWords(){
+        val words=database.wordList.random()
+        binding.mainWord.text=words.word
+        binding.prohibited1.text=words.prohibitedWords
+        binding.prohibited2.text=words.prohibitedWords
+        binding.prohibited3.text=words.prohibitedWords
+        binding.prohibited4.text=words.prohibitedWords
+        binding.prohibited5.text=words.prohibitedWords
     }
 
 }

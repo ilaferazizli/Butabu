@@ -44,7 +44,7 @@
         android:indeterminateOnly="false"
         android:rotation="270"
         app:layout_constraintTop_toTopOf="@id/pause"
-        app:layout_constraintBottom_toTopOf="@id/spiderman"
+        app:layout_constraintBottom_toTopOf="@id/main_word"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -72,12 +72,12 @@
         android:layout_margin="16dp"
         android:background="@drawable/ic_back_white"
         android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="@id/spiderman"
-        app:layout_constraintStart_toStartOf="@id/spiderman"
-        app:layout_constraintTop_toTopOf="@id/spiderman" />
+        app:layout_constraintBottom_toBottomOf="@id/main_word"
+        app:layout_constraintStart_toStartOf="@id/main_word"
+        app:layout_constraintTop_toTopOf="@id/main_word" />
 
     <TextView
-        android:id="@+id/spiderman"
+        android:id="@+id/main_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="64dp"
