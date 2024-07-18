@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/vaxt_linear"
+        android:background="@drawable/bg_result_stroke"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp">
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/ic_back"
+            android:background="@drawable/ic_cancel_white"
             android:backgroundTint="@color/benovse"/>
         <TextView
             android:layout_width="wrap_content"
@@ -57,26 +57,26 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/x_in_linear"
-                android:src="@drawable/ic_back"
+                android:background="@drawable/bg_red_rounded"
+                android:src="@drawable/ic_cancel_white"
                 android:padding="12dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
-                android:background="@drawable/x_in_linear"
+                android:background="@drawable/bg_red_rounded"
                 android:backgroundTint="@color/benovse"
                 android:padding="12dp"
-                android:src="@drawable/vector__1_" />
+                android:src="@drawable/ic_next" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/x_in_linear"
+                android:background="@drawable/bg_red_rounded"
                 android:backgroundTint="@color/green"
                 android:padding="12dp"
-                android:src="@drawable/vector__2_" />
+                android:src="@drawable/ic_done" />
 
         </LinearLayout>
         <LinearLayout
@@ -127,7 +127,7 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:background="@drawable/button_settings"
+            android:background="@drawable/bg_button"
             android:backgroundTint="@color/benovse"
             android:paddingHorizontal="36dp"
             />

@@ -1,12 +1,13 @@
-package com.activity.butabu
+package com.activity.butabu.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.activity.butabu.R
 import com.activity.butabu.databinding.ActivityOynaBinding
 
-class OynaActivity : AppCompatActivity() {
+class DifficultyActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOynaBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +20,7 @@ class OynaActivity : AppCompatActivity() {
         listOf(binding.sade, binding.orta, binding.cetin).forEach { view ->
             view.setOnClickListener {
                 Toast.makeText(this, "${it.tag}", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, ActivityOyun::class.java)
+                val intent = Intent(this, GameActivity::class.java)
                 intent.putExtra("level", "${binding.sade.tag}")
                 startActivity(intent)
             }

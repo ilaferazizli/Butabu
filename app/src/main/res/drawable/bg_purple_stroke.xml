@@ -7,5 +7,4 @@
         android:bottomRightRadius="12dp"
         />
     <stroke android:color="@color/benovse" android:width="2dp"/>
-
 </shape>
