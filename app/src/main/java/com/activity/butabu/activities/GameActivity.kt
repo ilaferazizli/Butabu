@@ -2,6 +2,7 @@ package com.activity.butabu.activities
 
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -9,12 +10,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.activity.butabu.CustomAlertDialog
 import com.activity.butabu.CustomCountDownTimer
-import com.activity.butabu.Database
 import com.activity.butabu.R
 import com.activity.butabu.objects.WordCounts.cancelledWord
 import com.activity.butabu.objects.WordCounts.nextWord
 import com.activity.butabu.objects.WordCounts.correctWord
 import com.activity.butabu.databinding.ActivityGameBinding
+import com.activity.butabu.objects.Objects
 import com.activity.butabu.objects.Rounds
 import com.activity.butabu.objects.Team1
 import com.activity.butabu.objects.Team2
@@ -32,7 +33,8 @@ class GameActivity : AppCompatActivity() {
             resetValues()
         }
     }
-    private var database=Database()
+    private var usedWordList=Objects().usedWordList
+    private var wordList=Objects().wordList
     private lateinit var customAlertDialog: CustomAlertDialog
     private lateinit var customCountDownTimer: CustomCountDownTimer
 
@@ -50,8 +52,6 @@ class GameActivity : AppCompatActivity() {
         customCountDownTimer= object : CustomCountDownTimer(60000, 1000){}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
-        database.createSQLdb(this)
-        database.readSQLdb(this)
         generateWords()
 
         setupListeners()
@@ -127,6 +127,9 @@ class GameActivity : AppCompatActivity() {
             binding.play.visibility= View.INVISIBLE
             binding.pause.visibility=View.VISIBLE
         }
+        binding.returnLastWord.setOnClickListener {
+            returnLastWord()
+        }
     }
     private fun changeCountTimeColor(color:Int){
         binding.countTime.progressDrawable.setTint(resources.getColor(color))
@@ -139,6 +142,7 @@ class GameActivity : AppCompatActivity() {
     private fun countWord(button:View, text: TextView,){
         button.setOnClickListener{
             generateWords()
+            slideWords()
             when(button.id){
                 R.id.cancel -> {
                     cancelledWord++
@@ -176,15 +180,43 @@ class GameActivity : AppCompatActivity() {
         Team1.played=false
         Team2.played=false
         Rounds.roundCurrent=1
+        changeCountTimeColor(R.color.green)
+        wordList=Objects().wordList
+        usedWordList=Objects().usedWordList
     }
     private fun generateWords(){
-        val words=database.wordList.random()
+        var words= wordList.randomOrNull()
+        if(words==null){
+            wordList=Objects().wordList
+            usedWordList=Objects().usedWordList
+            words= wordList.random()
+        }
+        else{
+            usedWordList.add(words)
+            wordList.remove(words)
+            binding.mainWord.text=words.word
+            binding.prohibited1.text=words.prohibitedWords[0]
+            binding.prohibited2.text=words.prohibitedWords[1]
+            binding.prohibited3.text=words.prohibitedWords[2]
+            binding.prohibited4.text=words.prohibitedWords[3]
+        }
+    }
+    private fun returnLastWord(){
+        val words= usedWordList[usedWordList.lastIndex-1]
         binding.mainWord.text=words.word
-        binding.prohibited1.text=words.prohibitedWords
-        binding.prohibited2.text=words.prohibitedWords
-        binding.prohibited3.text=words.prohibitedWords
-        binding.prohibited4.text=words.prohibitedWords
-        binding.prohibited5.text=words.prohibitedWords
+        usedWordList.removeLast()
+        binding.prohibited1.text=words.prohibitedWords[0]
+        binding.prohibited2.text=words.prohibitedWords[1]
+        binding.prohibited3.text=words.prohibitedWords[2]
+        binding.prohibited4.text=words.prohibitedWords[3]
+    }
+    private fun slideWords(){
+        val animationLeft= AnimationUtils.loadAnimation(this, R.anim.slide_anim_left)
+        val animationRight= AnimationUtils.loadAnimation(this, R.anim.slide_anim_right)
+        listOf(binding.returnLastWord,binding.mainWord,binding.linearLayoutOyun).forEach {
+            it.startAnimation(animationRight)
+            it.startAnimation(animationLeft)
+        }
     }
 
 }
