@@ -19,6 +19,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-//ilafer
-//nihat
-//nese
