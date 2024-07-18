@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Activity_solo_game">
+    <ImageView
+        android:id="@+id/back_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_back_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/linear_spiderman"/>
+
+    <ImageView
+        android:id="@+id/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/linear_spiderman"/>
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:background="@drawable/ic_resume"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/dark_pink"/>
+
+    <ProgressBar
+        android:id="@+id/countTime"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:progressDrawable="@drawable/bg_progressbar"
+        android:indeterminateOnly="false"
+        android:rotation="270"
+        app:layout_constraintTop_toTopOf="@id/pause"
+        app:layout_constraintBottom_toTopOf="@id/spiderman"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/time_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="60"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/countTime"
+        app:layout_constraintEnd_toEndOf="@+id/countTime"
+        app:layout_constraintStart_toStartOf="@+id/countTime"
+        app:layout_constraintTop_toTopOf="@+id/countTime" />
+
+
+
+
+
+    <ImageView
+        android:id="@+id/back_back_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_back_white"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/spiderman"
+        app:layout_constraintStart_toStartOf="@id/spiderman"
+        app:layout_constraintTop_toTopOf="@id/spiderman" />
+
+    <TextView
+        android:id="@+id/spiderman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="64dp"
+        android:background="@drawable/bg_purple"
+        android:backgroundTint="@color/linear_spiderman"
+        android:padding="10dp"
+        android:text="Salam"
+        android:textAlignment="center"
+        android:textColor="@color/yellow"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout_oyun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_oyun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="64dp"
+        android:background="@drawable/bg_purple_stroke"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hörümçək"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Super qəhrəman"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Tor"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Qırmızı"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adam"
+            android:padding="8dp"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/exit_icon_3time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_cancel_word"
+        android:padding="16dp"
+        android:src="@drawable/ic_cancel_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/back_back"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun" />
+
+    <TextView
+        android:id="@+id/exit_icon_3time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_cancel_word_stroke"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exit_icon_3time"
+        app:layout_constraintStart_toEndOf="@id/exit_icon_3time"
+        app:layout_constraintTop_toTopOf="@+id/exit_icon_3time" />
+
+    <ImageView
+        android:id="@+id/next_icon_3time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_next_word"
+        android:backgroundTint="@color/yellow"
+        android:padding="16dp"
+        android:src="@drawable/ic_next"
+        app:layout_constraintBottom_toBottomOf="@id/exit_icon_3time"
+        app:layout_constraintEnd_toStartOf="@+id/next_icon_3time_right"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/exit_icon_3time"
+
+        />
+
+    <TextView
+        android:id="@+id/next_icon_3time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_next_word_stroke"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/next_icon_3time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/next_icon_3time"
+        app:layout_constraintTop_toTopOf="@+id/next_icon_3time" />
+
+    <ImageView
+        android:id="@+id/okey_icon_3time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_done_word"
+        android:backgroundTint="@color/green"
+        android:padding="16dp"
+        android:src="@drawable/ic_done"
+        app:layout_constraintBottom_toBottomOf="@id/next_icon_3time"
+        app:layout_constraintEnd_toStartOf="@+id/okey_icon_3time_right"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
+
+        app:layout_constraintTop_toTopOf="@id/next_icon_3time" />
+
+    <TextView
+        android:id="@+id/okey_icon_3time_right"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_done_word_stroke"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:text="3"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/next_icon_3time"
+        app:layout_constraintEnd_toEndOf="@+id/pause"
+        app:layout_constraintTop_toTopOf="@+id/next_icon_3time" />
+    <TextView
+        android:id="@+id/sans_sayi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/lampa"
+        app:layout_constraintTop_toBottomOf="@id/lampa"
+        app:layout_constraintBottom_toTopOf="@id/lampa"
+        app:layout_constraintStart_toStartOf="@id/lampa"
+        android:elevation="10dp"
+        android:text="2"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/lampa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/vector__3_"
+        app:layout_constraintEnd_toEndOf="@id/linearLayout_oyun"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
+        app:layout_constraintBottom_toTopOf="@id/okey_icon_3time"
+        android:elevation="0dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

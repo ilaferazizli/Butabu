@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:background="@drawable/bg_result_stroke"
-        android:backgroundTint="@color/linear_spiderman"
+        android:backgroundTint="@color/dark_pink"
         android:orientation="vertical"
         android:padding="10dp"
         android:text="Spiderman"
@@ -66,13 +66,14 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="1dp"
         android:text="Komanda"
         android:textAlignment="textStart"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/exit_icon_score"
+        app:layout_constraintBottom_toTopOf="@+id/komanda_2"
         app:layout_constraintStart_toStartOf="@+id/komanda_1"
-        app:layout_constraintTop_toTopOf="@+id/exit_icon_score" />
+        app:layout_constraintTop_toTopOf="@+id/retry" />
 
     <ImageView
         android:id="@+id/exit_icon_score"
@@ -84,6 +85,7 @@
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_exit"
         app:layout_constraintEnd_toStartOf="@+id/next_icon_score"
         app:layout_constraintStart_toEndOf="@+id/komanda_1"
+        android:elevation="1dp"
         />
 
     <ImageView
@@ -98,6 +100,7 @@
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_next"
         app:layout_constraintEnd_toStartOf="@+id/okey_icon_score"
         app:layout_constraintStart_toEndOf="@+id/exit_icon_score"
+        android:elevation="1dp"
         />
 
     <ImageView
@@ -111,22 +114,23 @@
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_okey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/next_icon_score"
+        android:elevation="1dp"
         />
 
     <TextView
         android:id="@+id/komanda_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="1dp"
         android:text="Komanda 1"
-        android:textStyle="bold"
         android:textAlignment="textStart"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/komanda_2"
         app:layout_constraintEnd_toStartOf="@id/exit_icon_score"
-
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <TextView
         android:id="@+id/komanda_1_exit"
@@ -140,7 +144,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/exit_icon_score"
         app:layout_constraintStart_toStartOf="@+id/exit_icon_score"
-        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+        app:layout_constraintTop_toTopOf="@id/komanda_1"
+        android:elevation="1dp"/>
 
     <TextView
         android:id="@+id/komanda_1_next"
@@ -154,7 +159,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/next_icon_score"
         app:layout_constraintStart_toStartOf="@+id/next_icon_score"
-        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        android:elevation="1dp"/>
 
     <TextView
         android:id="@+id/komanda_1_okey"
@@ -168,44 +174,45 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/okey_icon_score"
         app:layout_constraintStart_toStartOf="@+id/okey_icon_score"
-        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        android:elevation="1dp"/>
 
     <TextView
         android:id="@+id/komanda_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="1dp"
         android:text="Komanda 2"
         android:textAlignment="textStart"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/komanda_1"
-        app:layout_constraintStart_toStartOf="@+id/komanda_1"
-
-        app:layout_constraintTop_toBottomOf="@id/komanda_1" />
+        app:layout_constraintStart_toStartOf="@+id/komanda_1" />
 
     <TextView
         android:id="@+id/komanda_2_exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:elevation="1dp"
         android:text="7"
         android:textAlignment="textStart"
         android:textColor="@color/red"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/komanda_2"
         app:layout_constraintEnd_toEndOf="@+id/komanda_1_exit"
         app:layout_constraintStart_toStartOf="@+id/komanda_1_exit"
-        app:layout_constraintTop_toBottomOf="@id/komanda_1_exit"
-
-        />
+        app:layout_constraintTop_toTopOf="@+id/komanda_2" />
 
     <TextView
         android:id="@+id/komanda_2_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:elevation="1dp"
         android:text="10"
         android:textAlignment="textStart"
         android:textColor="@color/yellow"
@@ -220,6 +227,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:elevation="1dp"
         android:text="15"
         android:textAlignment="textStart"
         android:textColor="@color/green"
@@ -229,5 +237,23 @@
         app:layout_constraintStart_toStartOf="@+id/komanda_1_okey"
         app:layout_constraintTop_toBottomOf="@id/komanda_1_okey" />
 
+    <ImageView
+        android:id="@+id/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_45"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pajamas_retry"
+        app:layout_constraintTop_toBottomOf="@id/linear_komanda"
+        app:layout_constraintBottom_toTopOf="@id/rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
