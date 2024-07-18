@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Butabu</string>
+    <string name="info">Təlimat : Oyunun məqsədi oyunçuların komanda üzvlərini bir-biri ilə yaxından əlaqəli sözlərdən ("Tabu Sözlər") istifadə etmədən müəyyən lüğət söz və ya ifadələri ("Hədəf Söz") təxmin etmələrini təmin etməkdir.</string>
 </resources>
