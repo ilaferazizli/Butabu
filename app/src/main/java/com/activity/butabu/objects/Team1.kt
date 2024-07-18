@@ -6,4 +6,5 @@ object Team1 {
     var totalCorrect = 0
     var totalNext = 0
     var played=false
+    //new
 }
