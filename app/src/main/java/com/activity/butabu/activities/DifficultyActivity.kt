@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.activity.butabu.R
-import com.activity.butabu.databinding.ActivityOynaBinding
+import com.activity.butabu.databinding.ActivityDifficultyBinding
 
 class DifficultyActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityOynaBinding
+    private lateinit var binding: ActivityDifficultyBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_oyna)
-        binding = ActivityOynaBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_difficulty)
+        binding = ActivityDifficultyBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.geri.setOnClickListener {
             finish()
