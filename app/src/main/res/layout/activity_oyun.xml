@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_oyun"
+    tools:context=".ActivityOyun"
     android:background="@color/dark_backround">
 
     <ImageView
@@ -27,20 +27,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:backgroundTint="@color/benovse"/>
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:background="@drawable/ic_resume"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/benovse"/>
+
+    <ProgressBar
+        android:id="@+id/countTime"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:progressDrawable="@drawable/progress_bg"
+        android:indeterminateOnly="false"
+        android:rotation="270"
+        app:layout_constraintBottom_toBottomOf="@+id/team_2"
+        app:layout_constraintEnd_toStartOf="@+id/team_2"
+        app:layout_constraintStart_toEndOf="@+id/team_1" />
 
     <TextView
         android:id="@+id/time_circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/time_circle"
-        android:padding="30dp"
         android:text="60"
-        android:textSize="20sp"
         android:textColor="@color/green"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pause" />
+        app:layout_constraintBottom_toBottomOf="@+id/countTime"
+        app:layout_constraintEnd_toEndOf="@+id/countTime"
+        app:layout_constraintStart_toStartOf="@+id/countTime"
+        app:layout_constraintTop_toTopOf="@+id/countTime" />
 
     <TextView
         android:id="@+id/team_1"
@@ -50,7 +70,7 @@
         android:textColor="@color/green"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/time_circle"
+        app:layout_constraintBottom_toTopOf="@+id/spiderman"
         app:layout_constraintEnd_toEndOf="@+id/back_back"
         app:layout_constraintStart_toStartOf="@+id/back_back"
         app:layout_constraintTop_toBottomOf="@id/back_back" />
@@ -63,7 +83,7 @@
         android:textColor="@color/red"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/time_circle"
+        app:layout_constraintBottom_toTopOf="@+id/spiderman"
         app:layout_constraintEnd_toEndOf="@+id/pause"
         app:layout_constraintStart_toStartOf="@+id/pause"
         app:layout_constraintTop_toBottomOf="@id/pause" />
@@ -151,6 +171,7 @@
             android:textSize="25sp"
             android:textStyle="bold"/>
     </LinearLayout>
+
 
     <ImageView
         android:id="@+id/exit_icon_3time"

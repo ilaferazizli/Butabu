@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:padding="12dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/ic_back" />
 
@@ -47,6 +48,7 @@
             android:background="@drawable/backround"
             android:padding="6dp"
             android:text="Sadə"
+            android:tag="sade"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -59,6 +61,7 @@
             android:background="@drawable/backround"
             android:padding="6dp"
             android:text="Orta"
+            android:tag="orta"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -74,6 +77,7 @@
             android:background="@drawable/backround"
             android:padding="6dp"
             android:text="Çətin"
+            android:tag="cetin"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
