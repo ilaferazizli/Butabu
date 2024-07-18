@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_parametrler">
+    tools:context=".activities.SettingActivity">
 
     <TextView
         android:id="@+id/parametrler"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginHorizontal="48dp"
-        android:background="@drawable/linear_bg"
+        android:background="@drawable/bg_blue"
         android:backgroundTint="@color/benovse"
         android:gravity="center"
         android:padding="32dp"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/ic_back"/>
+            android:background="@drawable/ic_cancel_white"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="01:00"
             android:textAlignment="center"
@@ -75,7 +75,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="4"
             android:textAlignment="center"
@@ -96,13 +96,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Azərbaycanca"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:drawableEnd="@drawable/dil_deyisme"
+            android:drawableEnd="@drawable/ic_drop_down_menu"
             android:layout_marginTop="12dp"/>
         <TextView
             android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="2"
             android:textAlignment="center"

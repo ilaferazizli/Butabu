@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OynaActivity"
-    android:background="@drawable/gradiient_color">
+    tools:context=".activities.DifficultyActivity"
+    android:background="@drawable/bg_gradient">
 
     <ImageView
         android:id="@+id/silinecek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/image_taboola"
+        android:background="@drawable/app_logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
-        android:background="@drawable/linear_bg"
+        android:background="@drawable/bg_blue"
         android:backgroundTint="@color/benovse"
         android:gravity="center"
         android:orientation="vertical"
@@ -39,13 +39,13 @@
             android:layout_gravity="end"
             android:padding="12dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/ic_back" />
+            android:background="@drawable/ic_cancel_white" />
 
         <TextView
             android:id="@+id/sade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Sadə"
             android:tag="sade"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Orta"
             android:tag="orta"
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Çətin"
             android:tag="cetin"
@@ -89,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:backgroundTint="@color/dark_parametr"
             android:padding="6dp"
             android:text="Parametrlər"

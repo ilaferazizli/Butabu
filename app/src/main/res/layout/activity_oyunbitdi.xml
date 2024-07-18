@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_oyunbitdi">
+    tools:context=".activities.GameOverActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,9 +58,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:background="@drawable/x_in_linear"
+        android:background="@drawable/bg_red_rounded"
         android:padding="12dp"
-        android:src="@drawable/ic_back"
+        android:src="@drawable/ic_cancel_white"
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_exit"
         app:layout_constraintEnd_toStartOf="@+id/next_icon_score"
         app:layout_constraintStart_toEndOf="@+id/komanda_1"
@@ -72,10 +72,10 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="96dp"
-        android:background="@drawable/x_in_linear"
+        android:background="@drawable/bg_red_rounded"
         android:backgroundTint="@color/benovse"
         android:padding="12dp"
-        android:src="@drawable/vector__1_"
+        android:src="@drawable/ic_next"
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_next"
         app:layout_constraintEnd_toStartOf="@+id/okey_icon_score"
         app:layout_constraintStart_toEndOf="@+id/exit_icon_score" />
@@ -85,10 +85,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:background="@drawable/x_in_linear"
+        android:background="@drawable/bg_red_rounded"
         android:backgroundTint="@color/green"
         android:padding="12dp"
-        android:src="@drawable/vector__2_"
+        android:src="@drawable/ic_done"
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_okey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/next_icon_score" />

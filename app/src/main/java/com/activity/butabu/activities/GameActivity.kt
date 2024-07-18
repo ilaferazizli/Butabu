@@ -1,4 +1,4 @@
-package com.activity.butabu
+package com.activity.butabu.activities
 
 import android.os.Bundle
 import android.view.View
@@ -7,12 +7,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.activity.butabu.CustomCountDownTimer
+import com.activity.butabu.R
 import com.activity.butabu.databinding.ActivityOyunBinding
 import com.activity.butabu.databinding.ActivityVaxtBinding
 import kotlin.math.roundToInt
 
 
-class ActivityOyun : AppCompatActivity() {
+class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOyunBinding
 
     private var countDownTime=60
@@ -36,7 +38,7 @@ class ActivityOyun : AppCompatActivity() {
         }
         binding = ActivityOyunBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        customCountDownTimer= object :CustomCountDownTimer(5000, 1000){}
+        customCountDownTimer= object : CustomCountDownTimer(5000, 1000){}
         setupListeners()
         setupTimer()
 

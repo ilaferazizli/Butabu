@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_solo_oyun">
+    tools:context=".activities.SoloActivity">
     <TextView
         android:id="@+id/Solo_oyun"
         android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
-        android:background="@drawable/linear_bg"
+        android:background="@drawable/bg_blue"
         android:backgroundTint="@color/benovse"
         android:gravity="center"
         android:orientation="vertical"
@@ -41,13 +41,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/ic_back" />
+            android:background="@drawable/ic_cancel_white" />
 
         <TextView
             android:id="@+id/sade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Sadə"
             android:textAlignment="center"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Orta"
             android:textAlignment="center"
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Çətin"
             android:textAlignment="center"
@@ -88,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@drawable/backround"
+            android:background="@drawable/bg_white_rounded"
             android:backgroundTint="@color/dark_parametr"
             android:padding="6dp"
             android:text="Parametrlər"
