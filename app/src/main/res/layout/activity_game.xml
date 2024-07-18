@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@id/pause" />
 
     <ImageView
-        android:id="@+id/back_back_2"
+        android:id="@+id/return_last_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -165,14 +165,6 @@
             android:textStyle="bold"
             />
 
-        <TextView
-            android:id="@+id/prohibited5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adam"
-            android:padding="8dp"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
     </LinearLayout>
 
 

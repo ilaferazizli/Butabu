@@ -66,7 +66,7 @@
 
 
     <ImageView
-        android:id="@+id/back_back_2"
+        android:id="@+id/return_last_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
