@@ -35,7 +35,7 @@
         android:background="@drawable/ic_resume"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/benovse"/>
+        android:backgroundTint="@color/dark_pink"/>
 
     <ProgressBar
         android:id="@+id/countTime"
