@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.GameActivity"
-    android:background="@color/dark_backround">
+    tools:context=".activities.GameActivity">
 
     <ImageView
         android:id="@+id/back_back"
@@ -16,7 +15,7 @@
         android:background="@drawable/ic_back_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/benovse"/>
+        android:backgroundTint="@color/linear_spiderman"/>
 
     <ImageView
         android:id="@+id/pause"
@@ -26,7 +25,7 @@
         android:background="@drawable/ic_pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/benovse"/>
+        android:backgroundTint="@color/linear_spiderman"/>
     <ImageView
         android:id="@+id/play"
         android:layout_width="wrap_content"
@@ -105,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="64dp"
         android:background="@drawable/bg_purple"
-        android:backgroundTint="@color/benovse"
+        android:backgroundTint="@color/linear_spiderman"
         android:padding="10dp"
         android:text="Spiderman"
         android:textAlignment="center"
@@ -202,7 +201,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_next_word"
-        android:backgroundTint="@color/benovse"
+        android:backgroundTint="@color/yellow"
         android:padding="16dp"
         android:src="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="@id/cancel"

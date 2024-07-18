@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.DifficultyActivity"
-    android:background="@drawable/bg_gradient">
+    android:background="@color/dark_pink">
 
     <ImageView
         android:id="@+id/silinecek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/app_logo"
+        android:background="@drawable/butabu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
         android:background="@drawable/bg_blue"
-        android:backgroundTint="@color/benovse"
+        android:backgroundTint="@color/linear_dark"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp"
@@ -49,6 +49,7 @@
             android:padding="6dp"
             android:text="Sadə"
             android:tag="sade"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -65,6 +66,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
 
 
             />
@@ -81,6 +83,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@color/white"
 
             />
 
@@ -90,13 +93,46 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/bg_white_rounded"
-            android:backgroundTint="@color/dark_parametr"
+            android:backgroundTint="@color/white"
             android:padding="6dp"
             android:text="Parametrlər"
             android:textAlignment="center"
-            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear_media"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="32dp"
+        android:gravity="center"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bi_instagram"
+            android:layout_marginRight="24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bi_facebook"
+            android:layout_marginRight="24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bi_telegram"
+            android:layout_marginLeftt="24dp"
+            />
 
     </LinearLayout>
 
