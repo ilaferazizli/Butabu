@@ -12,6 +12,7 @@ open class CustomCountDownTimer (
     private var isRunning: Boolean = false
     var onTickListener: ((millisUntilFinished: Long) -> Unit)? = null
     var onFinishListener: (() -> Unit)? = null
+    var onResumeListener: (() -> Unit)? = null
 
 
     private class InternalTimer(
