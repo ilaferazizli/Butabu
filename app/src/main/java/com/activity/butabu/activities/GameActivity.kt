@@ -2,30 +2,32 @@ package com.activity.butabu.activities
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.activity.butabu.CustomAlertDialog
 import com.activity.butabu.CustomCountDownTimer
 import com.activity.butabu.R
+import com.activity.butabu.objects.WordCounts.cancelledWord
+import com.activity.butabu.objects.WordCounts.nextWord
+import com.activity.butabu.objects.WordCounts.correctWord
 import com.activity.butabu.databinding.ActivityGameBinding
-import com.activity.butabu.databinding.AlertGameOverBinding
 import kotlin.math.roundToInt
-
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
-
     private var countDownTime=60
     private var clockTime = (countDownTime * 1000).toLong()
     private var progressTime = (clockTime / 1000).toFloat()
-
+    private var secondLeft=0
     private val onBackPressCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             onBackPressedCustom()
         }
     }
+    private lateinit var customAlertDialog: CustomAlertDialog
     private lateinit var customCountDownTimer: CustomCountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +40,15 @@ class GameActivity : AppCompatActivity() {
         }
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        customCountDownTimer= object : CustomCountDownTimer(5000, 1000){}
+
+        customCountDownTimer= object : CustomCountDownTimer(60000, 1000){}
+        customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
+
         setupListeners()
         setupTimer()
+        countWord(binding.cancel, binding.cancelCount)
+        countWord(binding.next, binding.nextCount)
+        countWord(binding.done, binding.doneCount)
 
 
     }
@@ -49,7 +57,6 @@ class GameActivity : AppCompatActivity() {
         super.onPause()
         customCountDownTimer.pauseTimer()
     }
-
     override fun onDestroy() {
         super.onDestroy()
         customCountDownTimer.destroy()
@@ -63,24 +70,35 @@ class GameActivity : AppCompatActivity() {
         finish()
     }
     private fun setupTimer(){
-        var secondLeft=0
+
         onBackPressedDispatcher.addCallback(this, onBackPressCallback)
         customCountDownTimer.onTickListener={millisUntilFinished ->
             val second = (millisUntilFinished / 1000.0f).roundToInt()
-            binding.countTime.progress=second
-            binding.timeCircle.text=second.toString()
             if(second!=secondLeft){
                 secondLeft=second
             }
+            if(progressTime.toInt() ==4*secondLeft){
+                changeCountTimeColor(R.color.red)
+            }
+            syncWithTimer(secondLeft)
+
         }
         customCountDownTimer.onFinishListener={
-            showAlert()
+            changeCountTimeColor(R.color.green)
+            syncWithTimer(0)
+            customAlertDialog.showGameOverDialog()
         }
         binding.countTime.max=progressTime.toInt()
         binding.countTime.progress=progressTime.toInt()
         customCountDownTimer.start()
     }
     private fun setupListeners() {
+        binding.cancel.setOnClickListener {
+            cancelledWord++
+
+            binding.cancelCount.text = cancelledWord.toString()
+        }
+
         binding.backBack.setOnClickListener {
             finish()
         }
@@ -95,19 +113,31 @@ class GameActivity : AppCompatActivity() {
             binding.pause.visibility=View.VISIBLE
         }
     }
-    private fun showAlert() {
-        var alertDialog: AlertDialog? = null
-        val builder = AlertDialog.Builder(this)
-        val view = AlertGameOverBinding.inflate(layoutInflater)
-        builder.setView(view.root)
-
-        view.basla.setOnClickListener {
-            alertDialog?.dismiss()
-            customCountDownTimer.restart()
+    private fun changeCountTimeColor(color:Int){
+        binding.countTime.progressDrawable.setTint(resources.getColor(color))
+        binding.timeCircle.setTextColor(resources.getColor(color))
+    }
+    private fun syncWithTimer(secondLeft:Int){
+        binding.countTime.progress=secondLeft
+        binding.timeCircle.text=secondLeft.toString()
+    }
+    private fun countWord(button:View, text: TextView,){
+        button.setOnClickListener{
+            when(button.id){
+                R.id.cancel -> {
+                    cancelledWord++
+                    text.text = cancelledWord.toString()
+                }
+                R.id.next -> {
+                    nextWord++
+                    text.text = nextWord.toString()
+                }
+                R.id.done -> {
+                    correctWord++
+                    text.text = correctWord.toString()
+                }
+            }
         }
-        alertDialog = builder.create()
-        alertDialog.window?.setBackgroundDrawableResource(R.drawable.bg_result_stroke)
-        alertDialog.show()
     }
 
 }
