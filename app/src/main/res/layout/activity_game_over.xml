@@ -6,107 +6,131 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.GameOverActivity">
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linear_komanda"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Komanda 1"
-        android:textColor="@color/blue"
-        android:textSize="32sp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/silinecek"
-        app:layout_constraintEnd_toEndOf="@+id/silinecek"
-        app:layout_constraintStart_toStartOf="@+id/silinecek"
-        />
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/bg_result_stroke"
+        android:backgroundTint="@color/dark_pink"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:text="Spiderman"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/exit_icon_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/silinecek">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="351dp"
+            android:layout_height="58dp"
+            android:text="Komanda 1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/silinecek"
+            app:layout_constraintStart_toStartOf="@+id/silinecek"
+            app:layout_constraintTop_toBottomOf="@+id/silinecek" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/oyun_bitdi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Oyun Bitdi!"
-        android:textColor="@color/benovse"
+        android:textColor="@color/linear_dark"
         android:textSize="44sp"
         android:textStyle="bold"
         android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/round_"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Round 4/4"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/oyun_bitdi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="48dp"
-        />
+
     <ImageView
         android:id="@+id/silinecek"
         android:layout_width="196dp"
         android:layout_height="196dp"
         android:background="@drawable/kupa_image"
-        app:layout_constraintTop_toBottomOf="@id/round_"
+        app:layout_constraintTop_toBottomOf="@id/oyun_bitdi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="48dp"/>
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        android:text="Komanda"
+        android:textAlignment="textStart"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/komanda_2"
+        app:layout_constraintStart_toStartOf="@+id/komanda_1"
+        app:layout_constraintTop_toTopOf="@+id/retry" />
 
     <ImageView
         android:id="@+id/exit_icon_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
         android:background="@drawable/bg_red_rounded"
         android:padding="12dp"
         android:src="@drawable/ic_cancel_white"
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_exit"
         app:layout_constraintEnd_toStartOf="@+id/next_icon_score"
         app:layout_constraintStart_toEndOf="@+id/komanda_1"
-        app:layout_constraintVertical_bias="1.0" />
+        android:elevation="1dp"
+        />
 
     <ImageView
         android:id="@+id/next_icon_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="96dp"
         android:background="@drawable/bg_red_rounded"
-        android:backgroundTint="@color/benovse"
+        android:backgroundTint="@color/yellow"
         android:padding="12dp"
         android:src="@drawable/ic_next"
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_next"
         app:layout_constraintEnd_toStartOf="@+id/okey_icon_score"
-        app:layout_constraintStart_toEndOf="@+id/exit_icon_score" />
+        app:layout_constraintStart_toEndOf="@+id/exit_icon_score"
+        android:elevation="1dp"
+        />
 
     <ImageView
         android:id="@+id/okey_icon_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
         android:background="@drawable/bg_red_rounded"
         android:backgroundTint="@color/green"
         android:padding="12dp"
         android:src="@drawable/ic_done"
         app:layout_constraintBottom_toTopOf="@+id/komanda_1_okey"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/next_icon_score" />
+        app:layout_constraintStart_toEndOf="@+id/next_icon_score"
+        android:elevation="1dp"
+        />
 
     <TextView
         android:id="@+id/komanda_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="1dp"
         android:text="Komanda 1"
-        android:textStyle="bold"
         android:textAlignment="textStart"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/komanda_2"
         app:layout_constraintEnd_toStartOf="@id/exit_icon_score"
-
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <TextView
         android:id="@+id/komanda_1_exit"
@@ -120,7 +144,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/exit_icon_score"
         app:layout_constraintStart_toStartOf="@+id/exit_icon_score"
-        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+        app:layout_constraintTop_toTopOf="@id/komanda_1"
+        android:elevation="1dp"/>
 
     <TextView
         android:id="@+id/komanda_1_next"
@@ -128,13 +153,14 @@
         android:layout_height="wrap_content"
         android:text="10"
         android:textAlignment="textStart"
-        android:textColor="@color/benovse"
+        android:textColor="@color/yellow"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/next_icon_score"
         app:layout_constraintStart_toStartOf="@+id/next_icon_score"
-        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        android:elevation="1dp"/>
 
     <TextView
         android:id="@+id/komanda_1_okey"
@@ -148,47 +174,48 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/okey_icon_score"
         app:layout_constraintStart_toStartOf="@+id/okey_icon_score"
-        app:layout_constraintTop_toBottomOf="@id/silinecek" />
+        app:layout_constraintTop_toBottomOf="@id/silinecek"
+        android:elevation="1dp"/>
 
     <TextView
         android:id="@+id/komanda_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="1dp"
         android:text="Komanda 2"
         android:textAlignment="textStart"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/komanda_1"
-        app:layout_constraintStart_toStartOf="@+id/komanda_1"
-
-        app:layout_constraintTop_toBottomOf="@id/komanda_1" />
+        app:layout_constraintStart_toStartOf="@+id/komanda_1" />
 
     <TextView
         android:id="@+id/komanda_2_exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:elevation="1dp"
         android:text="7"
         android:textAlignment="textStart"
         android:textColor="@color/red"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/komanda_2"
         app:layout_constraintEnd_toEndOf="@+id/komanda_1_exit"
         app:layout_constraintStart_toStartOf="@+id/komanda_1_exit"
-        app:layout_constraintTop_toBottomOf="@id/komanda_1_exit"
-
-        />
+        app:layout_constraintTop_toTopOf="@+id/komanda_2" />
 
     <TextView
         android:id="@+id/komanda_2_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:elevation="1dp"
         android:text="10"
         android:textAlignment="textStart"
-        android:textColor="@color/benovse"
+        android:textColor="@color/yellow"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/komanda_1_next"
@@ -200,6 +227,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:elevation="1dp"
         android:text="15"
         android:textAlignment="textStart"
         android:textColor="@color/green"
@@ -209,5 +237,23 @@
         app:layout_constraintStart_toStartOf="@+id/komanda_1_okey"
         app:layout_constraintTop_toBottomOf="@id/komanda_1_okey" />
 
+    <ImageView
+        android:id="@+id/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_45"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pajamas_retry"
+        app:layout_constraintTop_toBottomOf="@id/linear_komanda"
+        app:layout_constraintBottom_toTopOf="@id/rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

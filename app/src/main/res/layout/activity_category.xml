@@ -5,15 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CategoryActivity">
+    tools:context=".activities.CategoryActivity"
+    android:background="@color/dark_pink">
 
     <TextView
         android:id="@+id/kateqoriyalar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kateqoriyalar"
-        android:textColor="@color/benovse"
-        android:textSize="44sp"
+        android:textColor="@color/white"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/linear_parametrler"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +27,7 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="48dp"
         android:background="@drawable/bg_blue"
-        android:backgroundTint="@color/benovse"
+        android:backgroundTint="@color/linear_dark"
         android:gravity="center"
         android:padding="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,6 +50,7 @@
         android:background="@drawable/bg_white_rounded"
         android:padding="6dp"
         android:text="Əşya"
+        android:textColor="@color/white"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -61,6 +63,7 @@
         android:background="@drawable/bg_white_rounded"
         android:padding="6dp"
         android:text="Yer"
+        android:textColor="@color/white"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -75,6 +78,7 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_marginTop="24dp"/>
 
     <TextView
@@ -85,6 +89,7 @@
         android:text="Heyvan"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginTop="24dp"/>
     </LinearLayout>
