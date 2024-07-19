@@ -52,7 +52,7 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        customCountDownTimer= object : CustomCountDownTimer(60000, 1000){}
+        customCountDownTimer = object : CustomCountDownTimer(60000, 1000) {}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
         generateWords()
