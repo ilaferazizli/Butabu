@@ -69,6 +69,7 @@
             android:backgroundTint="@color/linear_dark"
             android:textColor="@color/white"
             android:text="Orta"
+            android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold"
