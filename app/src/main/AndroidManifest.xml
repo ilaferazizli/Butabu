@@ -21,7 +21,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".activities.Activity_solo_game"
+            android:name=".activities.ActivitySoloGame"
             android:screenOrientation="portrait"
                         android:exported="false" />
         <activity

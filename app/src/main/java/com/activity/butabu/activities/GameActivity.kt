@@ -1,5 +1,8 @@
 package com.activity.butabu.activities
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -64,10 +67,6 @@ class GameActivity : AppCompatActivity() {
 
     }
 
-    override fun onPause() {
-        super.onPause()
-        customCountDownTimer.pauseTimer()
-    }
     override fun onDestroy() {
         super.onDestroy()
         customCountDownTimer.destroy()
@@ -81,7 +80,6 @@ class GameActivity : AppCompatActivity() {
         finish()
     }
     private fun setupTimer(){
-
         onBackPressedDispatcher.addCallback(this, onBackPressCallback)
         customCountDownTimer.onTickListener={millisUntilFinished ->
             val second = (millisUntilFinished / 1000.0f).roundToInt()
@@ -211,12 +209,21 @@ class GameActivity : AppCompatActivity() {
         binding.prohibited4.text=words.prohibitedWords[3]
     }
     private fun slideWords(){
-        val animationLeft= AnimationUtils.loadAnimation(this, R.anim.slide_anim_left)
-        val animationRight= AnimationUtils.loadAnimation(this, R.anim.slide_anim_right)
         listOf(binding.returnLastWord,binding.mainWord,binding.linearLayoutOyun).forEach {
-            it.startAnimation(animationRight)
-            it.startAnimation(animationLeft)
+            val firstAnimator=ObjectAnimator.ofFloat(it,"translationX", 0f, -1000f).apply {
+                duration = 200
+            }
+            val secondAnimator=ObjectAnimator.ofFloat(it,"translationX", 1000f, 0f).apply {
+                duration = 200
+            }
+            firstAnimator.addListener(
+                object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        secondAnimator.start()
+                    }
+                }
+            )
+            firstAnimator.start()
         }
     }
-
 }
