@@ -131,7 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bi_telegram"
-            android:layout_marginLeftt="24dp"
+            android:layout_marginLeft="24dp"
             />
 
     </LinearLayout>
