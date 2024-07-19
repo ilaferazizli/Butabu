@@ -67,7 +67,6 @@
             android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:backgroundTint="@color/linear_dark"
-            android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:textColor="@color/white"
             android:text="Orta"
             android:textAlignment="center"

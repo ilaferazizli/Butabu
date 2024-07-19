@@ -34,7 +34,8 @@
         android:visibility="gone"
         android:background="@drawable/ic_resume"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/dark_pink"/>
 
     <ProgressBar
         android:id="@+id/countTime"
@@ -169,7 +170,7 @@
 
 
     <ImageView
-        android:id="@+id/cancel"
+        android:id="@+id/exit_icon_3time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_cancel_word"
@@ -180,75 +181,76 @@
         app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun" />
 
     <TextView
-        android:id="@+id/cancel_count"
+        android:id="@+id/exit_icon_3time_right"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@drawable/bg_cancel_word_stroke"
         android:gravity="center"
         android:paddingHorizontal="16dp"
-        android:text="0"
+        android:text="3"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cancel"
-        app:layout_constraintStart_toEndOf="@id/cancel"
-        app:layout_constraintTop_toTopOf="@+id/cancel" />
+        app:layout_constraintBottom_toBottomOf="@+id/exit_icon_3time"
+        app:layout_constraintStart_toEndOf="@id/exit_icon_3time"
+        app:layout_constraintTop_toTopOf="@+id/exit_icon_3time" />
 
     <ImageView
-        android:id="@+id/next"
+        android:id="@+id/next_icon_3time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_next_word"
         android:backgroundTint="@color/yellow"
         android:padding="16dp"
         android:src="@drawable/ic_next"
-        app:layout_constraintBottom_toBottomOf="@id/cancel"
-        app:layout_constraintEnd_toStartOf="@+id/next_count"
-
+        app:layout_constraintBottom_toBottomOf="@id/exit_icon_3time"
+        app:layout_constraintEnd_toStartOf="@+id/next_icon_3time_right"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cancel"
+        app:layout_constraintTop_toTopOf="@id/exit_icon_3time"
 
         />
 
     <TextView
-        android:id="@+id/next_count"
+        android:id="@+id/next_icon_3time_right"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@drawable/bg_next_word_stroke"
         android:gravity="center"
         android:paddingHorizontal="16dp"
-        android:text="0"
+        android:text="3"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/next"
+        app:layout_constraintBottom_toBottomOf="@+id/next_icon_3time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@id/next"
-        app:layout_constraintTop_toTopOf="@+id/next" />
+        app:layout_constraintStart_toEndOf="@id/next_icon_3time"
+        app:layout_constraintTop_toTopOf="@+id/next_icon_3time" />
 
     <ImageView
-        android:id="@+id/done"
+        android:id="@+id/okey_icon_3time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
         android:background="@drawable/bg_done_word"
         android:backgroundTint="@color/green"
         android:padding="16dp"
         android:src="@drawable/ic_done"
-        app:layout_constraintBottom_toBottomOf="@id/next"
-        app:layout_constraintEnd_toStartOf="@+id/done_count"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
+        app:layout_constraintBottom_toBottomOf="@id/next_icon_3time"
+        app:layout_constraintEnd_toStartOf="@+id/okey_icon_3time_right"
 
-        app:layout_constraintTop_toTopOf="@id/next" />
+        app:layout_constraintStart_toEndOf="@+id/next_icon_3time_right"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
+        app:layout_constraintTop_toTopOf="@id/next_icon_3time" />
 
     <TextView
-        android:id="@+id/done_count"
+        android:id="@+id/okey_icon_3time_right"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@drawable/bg_done_word_stroke"
         android:gravity="center"
         android:paddingHorizontal="16dp"
-        android:text="0"
+        android:text="3"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/next"
+        app:layout_constraintBottom_toBottomOf="@+id/next_icon_3time"
         app:layout_constraintEnd_toEndOf="@+id/pause"
-        app:layout_constraintTop_toTopOf="@+id/next" />
+        app:layout_constraintTop_toTopOf="@+id/next_icon_3time" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
