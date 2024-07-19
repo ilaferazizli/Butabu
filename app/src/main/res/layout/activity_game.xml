@@ -206,7 +206,6 @@
         android:src="@drawable/ic_next"
         app:layout_constraintBottom_toBottomOf="@id/exit_icon_3time"
         app:layout_constraintEnd_toStartOf="@+id/next_icon_3time_right"
-
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/exit_icon_3time"
@@ -232,14 +231,16 @@
         android:id="@+id/okey_icon_3time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
         android:background="@drawable/bg_done_word"
         android:backgroundTint="@color/green"
         android:padding="16dp"
         android:src="@drawable/ic_done"
         app:layout_constraintBottom_toBottomOf="@id/next_icon_3time"
         app:layout_constraintEnd_toStartOf="@+id/okey_icon_3time_right"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
 
+        app:layout_constraintStart_toEndOf="@+id/next_icon_3time_right"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout_oyun"
         app:layout_constraintTop_toTopOf="@id/next_icon_3time" />
 
     <TextView

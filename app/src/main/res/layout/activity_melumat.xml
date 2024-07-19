@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/info"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/info"
         android:textColor="@color/white"
@@ -30,7 +30,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/solo_oyun_info"/>
+        app:layout_constraintBottom_toTopOf="@id/solo_oyun_info"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
 
     <ImageView
         android:id="@+id/exit_icon_info"
@@ -40,7 +42,6 @@
         app:layout_constraintStart_toStartOf="@+id/info"
         app:layout_constraintBottom_toTopOf="@id/next_icon_info"
         app:layout_constraintTop_toBottomOf="@id/info"
-        android:layout_marginBottom="96dp"
         android:layout_marginTop="24dp"/>
 
     <ImageView
@@ -62,15 +63,17 @@
         app:layout_constraintTop_toBottomOf="@id/next_icon_info" />
     <TextView
         android:id="@+id/solo_oyun_info"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Solo oyun : Burada oyunçu  verilmiş sözləri istifadə edərək hədəf sözü tapmağa çalışır."
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/okey_icon_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingTop="24dp"/>
+        app:layout_constraintBottom_toTopOf="@id/ulduzlar"
+        android:paddingTop="24dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"/>
     <LinearLayout
         android:id="@+id/linear_media"
         android:layout_width="match_parent"
@@ -104,30 +107,33 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ulduzlar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="123dp"
         android:layout_marginHorizontal="48dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/linear_media"
         app:layout_constraintEnd_toEndOf="@id/linear_media"
-        app:layout_constraintStart_toStartOf="@id/linear_media"
-        android:gravity="center"
-        >
+        app:layout_constraintStart_toStartOf="@id/linear_media">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/star_1"/>
+            android:background="@drawable/star_1" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/star_2"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:background="@drawable/star_2" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/star_3"/>
+            android:background="@drawable/star_3" />
     </LinearLayout>
     <TextView
         android:id="@+id/exit_info"
@@ -144,22 +150,21 @@
         android:id="@+id/next_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="Pass edildikdə"
         android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="@id/exit_icon_info"
-        app:layout_constraintBottom_toBottomOf="@id/exit_icon_info"
-        app:layout_constraintStart_toStartOf="@id/exit_icon_info"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/next_icon_info"
+        app:layout_constraintBottom_toBottomOf="@id/next_icon_info"
+        app:layout_constraintStart_toStartOf="@id/exit_info"
         />
     <TextView
         android:id="@+id/okey_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tabu sözdən istifadə edildikdə"
+        android:text="Əsas söz tapıldıqda"
         android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="@id/exit_icon_info"
-        app:layout_constraintBottom_toBottomOf="@id/exit_icon_info"
-        app:layout_constraintStart_toStartOf="@id/exit_icon_info"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/okey_icon_info"
+        app:layout_constraintBottom_toBottomOf="@id/okey_icon_info"
+        app:layout_constraintStart_toStartOf="@id/exit_info"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
