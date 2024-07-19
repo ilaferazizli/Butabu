@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.soloGame.setOnClickListener {
-            val intent = Intent(this, ActivitySoloGame::class.java)
+            val intent = Intent(this, SoloActivity::class.java)
             startActivity(intent)
         }
         binding.category.setOnClickListener {
