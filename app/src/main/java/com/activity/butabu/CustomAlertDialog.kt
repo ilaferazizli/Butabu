@@ -16,7 +16,7 @@ import com.activity.butabu.objects.Rounds.roundTotal
 import com.activity.butabu.objects.Rounds.roundCurrent
 
 class CustomAlertDialog(private val context: Context, private val customCountDownTimer: CustomCountDownTimer) {
-
+    
     private var alertDialog: AlertDialog? = null
 
     fun showGameOverDialog() {
@@ -58,6 +58,7 @@ class CustomAlertDialog(private val context: Context, private val customCountDow
             Team2.played=true
             roundCurrent++
         }
+
 
         view.cancelCount.text = cancelledWord.toString()
         view.nextCount.text = nextWord.toString()
