@@ -1,7 +1,11 @@
 package com.activity.butabu.activities
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +18,10 @@ import com.activity.butabu.objects.WordCounts.cancelledWord
 import com.activity.butabu.objects.WordCounts.nextWord
 import com.activity.butabu.objects.WordCounts.correctWord
 import com.activity.butabu.databinding.ActivityGameBinding
+import com.activity.butabu.objects.Objects
+import com.activity.butabu.objects.Rounds
+import com.activity.butabu.objects.Team1
+import com.activity.butabu.objects.Team2
 import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
@@ -25,8 +33,11 @@ class GameActivity : AppCompatActivity() {
     private val onBackPressCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             onBackPressedCustom()
+            resetValues()
         }
     }
+    private var usedWordList=Objects().usedWordList
+    private var wordList=Objects().wordList
     private lateinit var customAlertDialog: CustomAlertDialog
     private lateinit var customCountDownTimer: CustomCountDownTimer
 
@@ -44,8 +55,11 @@ class GameActivity : AppCompatActivity() {
         customCountDownTimer= object : CustomCountDownTimer(60000, 1000){}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
+        generateWords()
+
         setupListeners()
         setupTimer()
+
         countWord(binding.cancel, binding.cancelCount)
         countWord(binding.next, binding.nextCount)
         countWord(binding.done, binding.doneCount)
@@ -53,10 +67,6 @@ class GameActivity : AppCompatActivity() {
 
     }
 
-    override fun onPause() {
-        super.onPause()
-        customCountDownTimer.pauseTimer()
-    }
     override fun onDestroy() {
         super.onDestroy()
         customCountDownTimer.destroy()
@@ -70,7 +80,6 @@ class GameActivity : AppCompatActivity() {
         finish()
     }
     private fun setupTimer(){
-
         onBackPressedDispatcher.addCallback(this, onBackPressCallback)
         customCountDownTimer.onTickListener={millisUntilFinished ->
             val second = (millisUntilFinished / 1000.0f).roundToInt()
@@ -87,6 +96,9 @@ class GameActivity : AppCompatActivity() {
             changeCountTimeColor(R.color.green)
             syncWithTimer(0)
             customAlertDialog.showGameOverDialog()
+            binding.cancelCount.text=0.toString()
+            binding.nextCount.text=0.toString()
+            binding.doneCount.text=0.toString()
         }
         binding.countTime.max=progressTime.toInt()
         binding.countTime.progress=progressTime.toInt()
@@ -101,6 +113,7 @@ class GameActivity : AppCompatActivity() {
 
         binding.backBack.setOnClickListener {
             finish()
+            resetValues()
         }
         binding.pause.setOnClickListener {
             customCountDownTimer.pauseTimer()
@@ -111,6 +124,9 @@ class GameActivity : AppCompatActivity() {
             customCountDownTimer.resumeTimer()
             binding.play.visibility= View.INVISIBLE
             binding.pause.visibility=View.VISIBLE
+        }
+        binding.returnLastWord.setOnClickListener {
+            returnLastWord()
         }
     }
     private fun changeCountTimeColor(color:Int){
@@ -123,6 +139,8 @@ class GameActivity : AppCompatActivity() {
     }
     private fun countWord(button:View, text: TextView,){
         button.setOnClickListener{
+            generateWords()
+            slideWords()
             when(button.id){
                 R.id.cancel -> {
                     cancelledWord++
@@ -133,11 +151,79 @@ class GameActivity : AppCompatActivity() {
                     text.text = nextWord.toString()
                 }
                 R.id.done -> {
+                    if(!Team1.played){
+                        Team1.totalCorrect++
+                        binding.team1.text = Team1.totalCorrect.toString()
+                    }
+                    else{
+                        Team2.totalCorrect++
+                        binding.team2.text = Team2.totalCorrect.toString()
+                    }
                     correctWord++
                     text.text = correctWord.toString()
                 }
             }
         }
     }
-
+    private fun resetValues(){
+        cancelledWord=0
+        nextWord=0
+        correctWord=0
+        Team1.totalCancelled=0
+        Team1.totalCorrect=0
+        Team1.totalNext=0
+        Team2.totalCancelled=0
+        Team2.totalCorrect=0
+        Team2.totalNext=0
+        Team1.played=false
+        Team2.played=false
+        Rounds.roundCurrent=1
+        changeCountTimeColor(R.color.green)
+        wordList=Objects().wordList
+        usedWordList=Objects().usedWordList
+    }
+    private fun generateWords(){
+        var words= wordList.randomOrNull()
+        if(words==null){
+            wordList=Objects().wordList
+            usedWordList=Objects().usedWordList
+            words= wordList.random()
+        }
+        else{
+            usedWordList.add(words)
+            wordList.remove(words)
+            binding.mainWord.text=words.word
+            binding.prohibited1.text=words.prohibitedWords[0]
+            binding.prohibited2.text=words.prohibitedWords[1]
+            binding.prohibited3.text=words.prohibitedWords[2]
+            binding.prohibited4.text=words.prohibitedWords[3]
+        }
+    }
+    private fun returnLastWord(){
+        val words= usedWordList[usedWordList.lastIndex-1]
+        binding.mainWord.text=words.word
+        usedWordList.removeLast()
+        binding.prohibited1.text=words.prohibitedWords[0]
+        binding.prohibited2.text=words.prohibitedWords[1]
+        binding.prohibited3.text=words.prohibitedWords[2]
+        binding.prohibited4.text=words.prohibitedWords[3]
+    }
+    private fun slideWords(){
+        listOf(binding.returnLastWord,binding.mainWord,binding.linearLayoutOyun).forEach {
+            val firstAnimator=ObjectAnimator.ofFloat(it,"translationX", 0f, -1000f).apply {
+                duration = 200
+            }
+            val secondAnimator=ObjectAnimator.ofFloat(it,"translationX", 1000f, 0f).apply {
+                duration = 200
+            }
+            firstAnimator.addListener(
+                object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        secondAnimator.start()
+                    }
+                }
+            )
+            firstAnimator.start()
+        }
+    }
 }

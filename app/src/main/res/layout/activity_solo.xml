@@ -30,7 +30,7 @@
         android:backgroundTint="@color/dark_pink"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="32dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,8 +41,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/ic_cancel_white" />
+            android:layout_marginHorizontal="16dp"
+            android:padding="16dp"
+            android:src="@drawable/ic_cancel_white" />
 
         <TextView
             android:id="@+id/sade"
@@ -53,6 +54,7 @@
             android:textColor="@color/white"
             android:padding="6dp"
             android:text="Sadə"
+            android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -81,6 +83,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
+            android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:text="Çətin"
             android:backgroundTint="@color/linear_dark"
             android:textColor="@color/white"
@@ -94,7 +97,8 @@
             android:id="@+id/parametrler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginVertical="40dp"
+            android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:background="@drawable/bg_white_rounded"
             android:backgroundTint="@color/white"
             android:padding="6dp"

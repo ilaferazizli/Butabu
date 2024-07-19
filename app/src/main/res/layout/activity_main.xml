@@ -18,74 +18,87 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintBottom_toTopOf="@id/menu_word"
+        app:layout_constraintVertical_bias="0.1"
         />
 
     <TextView
         android:id="@+id/menu_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="8dp"
         android:text="Menyu"
         android:textColor="@color/yellow"
-        android:textSize="24sp"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@id/bg_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_logo" />
+
+    <ImageView
+        android:id="@+id/bg_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/bg_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
     <ImageButton
         android:id="@+id/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_play"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="28dp"
         android:background="@drawable/bg_blue"
-        app:layout_constraintEnd_toStartOf="@+id/profiles"
+        android:paddingHorizontal="28dp"
+        android:paddingVertical="20dp"
+        android:src="@drawable/ic_play"
+        app:layout_constraintBottom_toTopOf="@+id/category"
+        app:layout_constraintEnd_toStartOf="@+id/solo_game"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_word" />
+        app:layout_constraintTop_toTopOf="@+id/bg_menu" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Oyna"
         android:textSize="18sp"
         android:layout_margin="8dp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/play"
         app:layout_constraintStart_toStartOf="@+id/play"
         app:layout_constraintTop_toBottomOf="@+id/play" />
+
     <ImageButton
-        android:id="@+id/profiles"
+        android:id="@+id/solo_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_profile"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="28dp"
         android:background="@drawable/bg_blue"
+        android:paddingHorizontal="28dp"
+        android:paddingVertical="20dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintBottom_toTopOf="@id/setting"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_word"
-        app:layout_constraintStart_toEndOf="@id/play" />
+        app:layout_constraintStart_toEndOf="@id/play"
+        app:layout_constraintTop_toTopOf="@+id/bg_menu" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Solo Oyun"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_margin="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/profiles"
-        app:layout_constraintStart_toStartOf="@+id/profiles"
-        app:layout_constraintTop_toBottomOf="@+id/profiles" />
+        app:layout_constraintEnd_toEndOf="@+id/solo_game"
+        app:layout_constraintStart_toStartOf="@+id/solo_game"
+        app:layout_constraintTop_toBottomOf="@+id/solo_game" />
+
     <ImageButton
         android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_category"
-        android:paddingVertical="20dp"
-        android:layout_marginVertical="64dp"
-        android:paddingHorizontal="28dp"
         android:background="@drawable/bg_blue"
+        android:paddingHorizontal="28dp"
+        android:paddingVertical="20dp"
+        android:src="@drawable/ic_category"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_menu"
         app:layout_constraintEnd_toStartOf="@+id/setting"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/play" />
@@ -94,6 +107,7 @@
         android:layout_height="wrap_content"
         android:text="Kategoriyalar"
         android:textSize="18sp"
+        android:textColor="@color/white"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="@+id/category"
         app:layout_constraintStart_toStartOf="@+id/category"
@@ -103,19 +117,23 @@
         android:id="@+id/setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_category"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="28dp"
         android:background="@drawable/bg_blue"
+        android:paddingHorizontal="28dp"
+        android:paddingVertical="20dp"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/category"
-        app:layout_constraintTop_toTopOf="@+id/category" />
+        app:layout_constraintTop_toBottomOf="@+id/solo_game" />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Parametrlər"
-        android:textSize="18sp"
         android:layout_margin="8dp"
+        android:text="Parametrlər"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/setting"
         app:layout_constraintStart_toStartOf="@+id/setting"
         app:layout_constraintTop_toBottomOf="@+id/setting" />
