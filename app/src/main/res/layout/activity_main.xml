@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_pink"
+    android:background="@color/dark_backround"
     tools:context=".activities.MainActivity"
     >
 
@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:background="@drawable/bg_menu"
+        android:backgroundTint="@color/switch_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +63,7 @@
         android:text="Oyna"
         android:textSize="18sp"
         android:layout_margin="8dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/play"
         app:layout_constraintStart_toStartOf="@+id/play"
         app:layout_constraintTop_toBottomOf="@+id/play" />
@@ -83,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Solo Oyun"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="@+id/solo_game"
@@ -105,9 +106,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kategoriyalar"
+        android:text="Kateqoriyalar"
         android:textSize="18sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="@+id/category"
         app:layout_constraintStart_toStartOf="@+id/category"
@@ -132,11 +133,43 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Parametrlər"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/setting"
         app:layout_constraintStart_toStartOf="@+id/setting"
         app:layout_constraintTop_toBottomOf="@+id/setting" />
+    <LinearLayout
+        android:id="@+id/linear_media"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:padding="32dp"
+        android:gravity="center"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_instagram_main"
+            android:layout_marginRight="24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_facebook_main"
+            android:layout_marginRight="24dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_telegram_main"
+            />
+
+    </LinearLayout>
 
 
 

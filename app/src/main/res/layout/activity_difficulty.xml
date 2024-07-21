@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.DifficultyActivity"
-    android:background="@color/dark_pink">
+    android:background="@color/dark_backround">
 
     <ImageView
         android:id="@+id/silinecek"
@@ -24,10 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
         android:background="@drawable/bg_blue"
-        android:backgroundTint="@color/dark_backround"
+        android:backgroundTint="@color/switch_color"
         android:gravity="center"
         android:orientation="vertical"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,8 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginHorizontal="16dp"
-            android:padding="16dp"
-            android:src="@drawable/ic_cancel_white" />
+            android:background="@drawable/ic_cancel_white"
+            android:backgroundTint="@color/dark_backround"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"/>
 
         <TextView
             android:id="@+id/sade"
@@ -48,14 +49,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:background="@drawable/bg_white_rounded"
-            android:backgroundTint="@color/dark_pink"
             android:padding="6dp"
             android:text="Sadə"
             android:tag="sade"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/orta"
@@ -64,14 +64,13 @@
             android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_white_rounded"
-            android:backgroundTint="@color/dark_pink"
             android:padding="6dp"
             android:text="Orta"
             android:tag="orta"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
 
 
             />
@@ -83,14 +82,13 @@
             android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_white_rounded"
-            android:backgroundTint="@color/dark_pink"
             android:padding="6dp"
             android:text="Çətin"
             android:tag="cetin"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
 
             />
 
@@ -100,43 +98,15 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/difficulty_margin_horizontal"
             android:layout_marginVertical="40dp"
-            android:background="@drawable/bg_white_rounded"
-            android:backgroundTint="@color/white"
+            android:background="@drawable/bg_yellow_rounded"
             android:padding="6dp"
             android:text="Parametrlər"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bi_instagram"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bi_facebook"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bi_telegram"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

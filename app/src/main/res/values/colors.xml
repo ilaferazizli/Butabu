@@ -13,5 +13,8 @@
     <color name="linear_dark">#593563</color>
     <color name="benovse">#3D1989</color>
     <color name="linear_spiderman">#2F053B</color>
+    <color name="dil_color">#F3DDFA</color>
     <color name="switch_color">#E4C5ED</color>
+    <color name="winner_color">#593563</color>
+
 </resources>
