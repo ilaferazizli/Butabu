@@ -4,8 +4,8 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -14,14 +14,15 @@ import androidx.core.view.WindowInsetsCompat
 import com.activity.butabu.CustomAlertDialog
 import com.activity.butabu.CustomCountDownTimer
 import com.activity.butabu.R
-import com.activity.butabu.objects.WordCounts.cancelledWord
-import com.activity.butabu.objects.WordCounts.nextWord
-import com.activity.butabu.objects.WordCounts.correctWord
 import com.activity.butabu.databinding.ActivityGameBinding
-import com.activity.butabu.objects.Objects
+import com.activity.butabu.dataclasses.Words
+import com.activity.butabu.objects.FireStoreRepository
 import com.activity.butabu.objects.Rounds
 import com.activity.butabu.objects.Team1
 import com.activity.butabu.objects.Team2
+import com.activity.butabu.objects.WordCounts.cancelledWord
+import com.activity.butabu.objects.WordCounts.correctWord
+import com.activity.butabu.objects.WordCounts.nextWord
 import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
@@ -30,14 +31,15 @@ class GameActivity : AppCompatActivity() {
     private var clockTime = (countDownTime * 1000).toLong()
     private var progressTime = (clockTime / 1000).toFloat()
     private var secondLeft=0
+    private var wordList = FireStoreRepository.easyWordList
     private val onBackPressCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             onBackPressedCustom()
             resetValues()
         }
     }
-    private var usedWordList=Objects().usedWordList
-    private var wordList=Objects().wordList
+    private val fireStoreRepository = FireStoreRepository()
+    private var usedWordList = FireStoreRepository.usedWordList
     private lateinit var customAlertDialog: CustomAlertDialog
     private lateinit var customCountDownTimer: CustomCountDownTimer
 
@@ -55,8 +57,20 @@ class GameActivity : AppCompatActivity() {
         customCountDownTimer = object : CustomCountDownTimer(60000, 1000) {}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
-        generateWords()
+        when(intent.getStringExtra("level")){
+            "sade" -> {
+                wordList = FireStoreRepository.easyWordList
+            }
+            "orta" -> {
+                wordList = FireStoreRepository.mediumWordList
+            }
+            "cetin" -> {
+                wordList = FireStoreRepository.hardWordList
+            }
+        }
 
+        Log.d("Log", "Size: ${wordList.size}")
+        generateWords("next")
         setupListeners()
         setupTimer()
 
@@ -66,7 +80,10 @@ class GameActivity : AppCompatActivity() {
 
 
     }
-
+    override fun onPause() {
+        super.onPause()
+        customCountDownTimer.pauseTimer()
+    }
     override fun onDestroy() {
         super.onDestroy()
         customCountDownTimer.destroy()
@@ -126,7 +143,7 @@ class GameActivity : AppCompatActivity() {
             binding.pause.visibility=View.VISIBLE
         }
         binding.returnLastWord.setOnClickListener {
-            returnLastWord()
+            generateWords("back")
         }
     }
     private fun changeCountTimeColor(color:Int){
@@ -139,7 +156,7 @@ class GameActivity : AppCompatActivity() {
     }
     private fun countWord(button:View, text: TextView,){
         button.setOnClickListener{
-            generateWords()
+            generateWords("next")
             slideWords()
             when(button.id){
                 R.id.cancel -> {
@@ -179,34 +196,29 @@ class GameActivity : AppCompatActivity() {
         Team2.played=false
         Rounds.roundCurrent=1
         changeCountTimeColor(R.color.green)
-        wordList=Objects().wordList
-        usedWordList=Objects().usedWordList
+        wordList.clear()
+        usedWordList.clear()
     }
-    private fun generateWords(){
-        var words= wordList.randomOrNull()
-        if(words==null){
-            wordList=Objects().wordList
-            usedWordList=Objects().usedWordList
-            words= wordList.random()
+    private fun generateWords(direction: String){
+        val word:Words
+        if(wordList.isEmpty()){
+            wordList=fireStoreRepository.staticWordList
+        }
+        if(direction=="back" && usedWordList.size>1){
+            usedWordList.removeLast()
+            word= usedWordList.last()
         }
         else{
-            usedWordList.add(words)
-            wordList.remove(words)
-            binding.mainWord.text=words.word
-            binding.prohibited1.text=words.prohibitedWords[0]
-            binding.prohibited2.text=words.prohibitedWords[1]
-            binding.prohibited3.text=words.prohibitedWords[2]
-            binding.prohibited4.text=words.prohibitedWords[3]
+            word= wordList.random()
+            Log.d("Log", "Word: ${fireStoreRepository.staticWordList.size}")
         }
-    }
-    private fun returnLastWord(){
-        val words= usedWordList[usedWordList.lastIndex-1]
-        binding.mainWord.text=words.word
-        usedWordList.removeLast()
-        binding.prohibited1.text=words.prohibitedWords[0]
-        binding.prohibited2.text=words.prohibitedWords[1]
-        binding.prohibited3.text=words.prohibitedWords[2]
-        binding.prohibited4.text=words.prohibitedWords[3]
+        wordList.remove(word)
+        usedWordList.add(word)
+        binding.mainWord.text=word.mainWord
+        binding.prohibited1.text=word.prohibitedWords[0]
+        binding.prohibited2.text=word.prohibitedWords[1]
+        binding.prohibited3.text=word.prohibitedWords[2]
+        binding.prohibited4.text=word.prohibitedWords[3]
     }
     private fun slideWords(){
         listOf(binding.returnLastWord,binding.mainWord,binding.linearLayoutOyun).forEach {
@@ -226,4 +238,5 @@ class GameActivity : AppCompatActivity() {
             firstAnimator.start()
         }
     }
+
 }

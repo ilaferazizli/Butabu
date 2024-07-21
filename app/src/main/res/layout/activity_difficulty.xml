@@ -8,6 +8,16 @@
     tools:context=".activities.DifficultyActivity"
     android:background="@color/dark_backround">
 
+    <ProgressBar
+        android:id="@+id/loading"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/silinecek"
+        app:layout_constraintStart_toStartOf="@+id/silinecek" />
     <ImageView
         android:id="@+id/silinecek"
         android:layout_width="wrap_content"
@@ -71,8 +81,6 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="italic"
-
-
             />
 
         <TextView

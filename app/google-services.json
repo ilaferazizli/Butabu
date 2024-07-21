@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1066108395856",
+    "project_id": "butabu-8f90d",
+    "storage_bucket": "butabu-8f90d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066108395856:android:bc8ffe582d32f4f9730c55",
+        "android_client_info": {
+          "package_name": "com.activity.butabu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfj7Kyqs8SA2S_prw_WYulOxhkYpkYwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
