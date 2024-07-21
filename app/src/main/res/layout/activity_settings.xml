@@ -28,11 +28,10 @@
         android:layout_marginRight="196dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/bg_white_rounded"
-        android:backgroundTint="@color/linear_spiderman"
         android:padding="12dp"
         android:text="Vaxt"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/linear_spiderman"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintTop_toBottomOf="@id/parametrler"
@@ -45,11 +44,10 @@
         android:layout_width="156dp"
         android:layout_height="56dp"
         android:background="@drawable/bg_white_rounded"
-        android:backgroundTint="@color/linear_spiderman"
         android:padding="12dp"
         android:text="Pas sayı"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/linear_spiderman"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
@@ -57,7 +55,7 @@
         app:layout_constraintStart_toStartOf="@+id/vaxt"
         app:layout_constraintTop_toBottomOf="@+id/vaxt" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView6"
         android:layout_width="96dp"
         android:layout_height="56dp"
@@ -72,7 +70,7 @@
         app:layout_constraintStart_toEndOf="@+id/vaxt"
         app:layout_constraintTop_toTopOf="@+id/vaxt" />
 
-    <TextView
+    <EditText
         android:id="@+id/text_pas_sayi"
         android:layout_width="96dp"
         android:layout_height="56dp"
@@ -121,15 +119,15 @@
         android:id="@+id/textView3"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_white_rounded"
-        android:backgroundTint="@color/linear_spiderman"
+        android:background="@drawable/bg_dil_rounded"
         android:padding="12dp"
-        android:text="Dil"
+        android:text="Azərbaycan dili"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/linear_spiderman"
         android:textSize="20sp"
         android:textStyle="italic"
-        android:drawableEnd="@drawable/ic_drop_down_white"
+        android:drawableEnd="@drawable/ic_drop_down_2"
+        android:drawableStart="@drawable/ic_flag_azerbaijan"
         app:layout_constraintBottom_toTopOf="@id/basla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -148,10 +146,11 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/basla"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
         android:background="@drawable/bg_button"
         android:backgroundTint="@color/yellow"
+        android:textColor="@color/linear_spiderman"
         android:textAllCaps="false"
         android:text="Bitdi"
         android:textSize="20sp"
