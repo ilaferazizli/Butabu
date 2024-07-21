@@ -12,8 +12,8 @@ import android.view.LayoutInflater
 import android.view.View.INVISIBLE
 import com.activity.butabu.activities.GameOverActivity
 import com.activity.butabu.databinding.AlertGameOverBinding
-import com.activity.butabu.objects.Rounds.roundTotal
-import com.activity.butabu.objects.Rounds.roundCurrent
+import com.activity.butabu.objects.GameProperties.roundTotal
+import com.activity.butabu.objects.GameProperties.roundCurrent
 
 class CustomAlertDialog(private val context: Context, private val customCountDownTimer: CustomCountDownTimer) {
     
@@ -24,7 +24,7 @@ class CustomAlertDialog(private val context: Context, private val customCountDow
         val view = AlertGameOverBinding.inflate(LayoutInflater.from(context))
         builder.setView(view.root)
 
-        view.basla.setOnClickListener {
+        view.start.setOnClickListener {
             alertDialog?.dismiss()
             cancelledWord = 0
             nextWord = 0
@@ -38,7 +38,7 @@ class CustomAlertDialog(private val context: Context, private val customCountDow
         }
         "Round $roundCurrent/$roundTotal".also { view.round.text = it }
         if(roundCurrent== roundTotal&& !Team2.played){
-            "Nəticələr".also { view.basla.text = it }
+            "Nəticələr".also { view.start.text = it }
             view.nextTeam.visibility = INVISIBLE
         }
         if (!Team1.played){
@@ -63,7 +63,6 @@ class CustomAlertDialog(private val context: Context, private val customCountDow
         view.cancelCount.text = cancelledWord.toString()
         view.nextCount.text = nextWord.toString()
         view.doneCount.text = correctWord.toString()
-
         alertDialog = builder.create()
         alertDialog?.setCancelable(false)
         alertDialog?.window?.setBackgroundDrawableResource(R.drawable.bg_result_stroke)

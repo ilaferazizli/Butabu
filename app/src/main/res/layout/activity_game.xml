@@ -34,8 +34,7 @@
         android:visibility="gone"
         android:background="@drawable/ic_resume"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/dark_pink"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ProgressBar
         android:id="@+id/countTime"
@@ -162,15 +161,6 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Qırmızı"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/prohibited5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Adam"
             android:textSize="25sp"
             android:textStyle="bold"
             />

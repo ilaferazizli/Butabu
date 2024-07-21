@@ -21,23 +21,40 @@ class DifficultyActivity : AppCompatActivity() {
         binding.geri.setOnClickListener {
             finish()
         }
-
-        listOf(binding.sade, binding.orta, binding.cetin).forEach { view ->
-            view.setOnClickListener {
-                button ->
-                binding.loading.visibility= View.VISIBLE
-                FireStoreRepository().fetchData(
-                    onFetchComplete = {
-                        binding.loading.visibility= View.INVISIBLE
-                        Log.d("MainActivity", "Words fetched successfully")
-                        Toast.makeText(this, "${button.tag}", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, GameActivity::class.java)
-                        intent.putExtra("level", "${button.tag}")
-                        startActivity(intent)
-                    }
-                )
-
+        binding.parametrler.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+        }
+        if (intent.getStringExtra("action") == "addWord") {
+            listOf(binding.sade, binding.orta, binding.cetin).forEach { view ->
+                view.setOnClickListener {
+                    button ->
+                            Toast.makeText(this, "${button.tag}", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, AddWordActivity::class.java)
+                            intent.putExtra("addWordlevel", "${button.tag}")
+                            startActivity(intent)
+                }
             }
         }
+        else{
+            listOf(binding.sade, binding.orta, binding.cetin).forEach { view ->
+                view.setOnClickListener {
+                        button ->
+                    binding.loading.visibility= View.VISIBLE
+                    FireStoreRepository().fetchData(
+                        onFetchComplete = {
+                            binding.loading.visibility= View.INVISIBLE
+                            Log.d("MainActivity", "Words fetched successfully")
+                            Toast.makeText(this, "${button.tag}", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, GameActivity::class.java)
+                            intent.putExtra("level", "${button.tag}")
+                            startActivity(intent)
+                        }
+                    )
+
+                }
+            }
+        }
+
     }
 }

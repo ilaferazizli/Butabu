@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.play.setOnClickListener {
             val intent = Intent(this, DifficultyActivity::class.java)
+            intent.putExtra("action","play")
             startActivity(intent)
         }
         binding.soloGame.setOnClickListener {
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.setting.setOnClickListener {
             val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+        }
+        binding.info.setOnClickListener{
+            val intent = Intent(this, InfoActivity::class.java)
             startActivity(intent)
         }
     }

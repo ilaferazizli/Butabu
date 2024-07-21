@@ -46,7 +46,7 @@ class FireStoreRepository{
                 onFetchComplete(easyWordList)
             }
     }
-    fun readData(word: Words) {
+    fun writeData(word: Words) {
         val db = FirebaseFirestore.getInstance()
         val wordsCollection = db.collection("MainWords")
 

@@ -117,7 +117,7 @@
         android:layout_marginTop="48dp"
         android:textColor="@color/linear_spiderman"/>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/basla"
+        android:id="@+id/start"
         android:layout_width="170dp"
         android:layout_height="40dp"
         android:text="Başla"

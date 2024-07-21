@@ -9,6 +9,16 @@
     >
 
     <ImageView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_info"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
         android:id="@+id/app_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
+        android:backgroundTint="@color/dark_backround"
         android:paddingHorizontal="28dp"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_play"
@@ -74,6 +85,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
         android:paddingHorizontal="28dp"
+        android:backgroundTint="@color/dark_backround"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_profile"
         app:layout_constraintBottom_toTopOf="@id/setting"
@@ -97,6 +109,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
         android:paddingHorizontal="28dp"
+        android:backgroundTint="@color/dark_backround"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_category"
         app:layout_constraintBottom_toBottomOf="@+id/bg_menu"
@@ -120,6 +133,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
         android:paddingHorizontal="28dp"
+        android:backgroundTint="@color/dark_backround"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_setting"
         app:layout_constraintBottom_toBottomOf="@+id/bg_menu"
