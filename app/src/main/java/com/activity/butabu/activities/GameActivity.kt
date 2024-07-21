@@ -3,11 +3,13 @@ package com.activity.butabu.activities
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,7 +19,7 @@ import com.activity.butabu.R
 import com.activity.butabu.databinding.ActivityGameBinding
 import com.activity.butabu.dataclasses.Words
 import com.activity.butabu.objects.FireStoreRepository
-import com.activity.butabu.objects.Rounds
+import com.activity.butabu.objects.GameProperties
 import com.activity.butabu.objects.Team1
 import com.activity.butabu.objects.Team2
 import com.activity.butabu.objects.WordCounts.cancelledWord
@@ -27,7 +29,7 @@ import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
-    private var countDownTime=60
+    private var countDownTime=GameProperties.time
     private var clockTime = (countDownTime * 1000).toLong()
     private var progressTime = (clockTime / 1000).toFloat()
     private var secondLeft=0
@@ -46,15 +48,17 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        customCountDownTimer = object : CustomCountDownTimer(60000, 1000) {}
+        customCountDownTimer = object : CustomCountDownTimer(clockTime, 1000) {}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
         when(intent.getStringExtra("level")){
@@ -104,13 +108,17 @@ class GameActivity : AppCompatActivity() {
                 secondLeft=second
             }
             if(progressTime.toInt() ==4*secondLeft){
-                changeCountTimeColor(R.color.red)
+                if(GameProperties.warningSound){
+                    val mediaPlayer= MediaPlayer.create(this, R.raw.bell_sound)
+                    mediaPlayer.start()
+                }
+                changeTimerColor(R.color.red)
             }
             syncWithTimer(secondLeft)
 
         }
         customCountDownTimer.onFinishListener={
-            changeCountTimeColor(R.color.green)
+            changeTimerColor(R.color.green)
             syncWithTimer(0)
             customAlertDialog.showGameOverDialog()
             binding.cancelCount.text=0.toString()
@@ -146,7 +154,7 @@ class GameActivity : AppCompatActivity() {
             generateWords("back")
         }
     }
-    private fun changeCountTimeColor(color:Int){
+    private fun changeTimerColor(color:Int){
         binding.countTime.progressDrawable.setTint(resources.getColor(color))
         binding.timeCircle.setTextColor(resources.getColor(color))
     }
@@ -194,8 +202,8 @@ class GameActivity : AppCompatActivity() {
         Team2.totalNext=0
         Team1.played=false
         Team2.played=false
-        Rounds.roundCurrent=1
-        changeCountTimeColor(R.color.green)
+        GameProperties.roundCurrent=1
+        changeTimerColor(R.color.green)
         wordList.clear()
         usedWordList.clear()
     }

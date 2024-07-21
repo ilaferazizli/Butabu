@@ -9,6 +9,16 @@
     >
 
     <ImageView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_info"
+        android:padding="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
         android:id="@+id/app_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
+        android:backgroundTint="@color/dark_backround"
         android:paddingHorizontal="28dp"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_play"
@@ -74,6 +85,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
         android:paddingHorizontal="28dp"
+        android:backgroundTint="@color/dark_backround"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_profile"
         app:layout_constraintBottom_toTopOf="@id/setting"
@@ -97,6 +109,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
         android:paddingHorizontal="28dp"
+        android:backgroundTint="@color/dark_backround"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_category"
         app:layout_constraintBottom_toBottomOf="@+id/bg_menu"
@@ -120,6 +133,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_blue"
         android:paddingHorizontal="28dp"
+        android:backgroundTint="@color/dark_backround"
         android:paddingVertical="20dp"
         android:src="@drawable/ic_setting"
         app:layout_constraintBottom_toBottomOf="@+id/bg_menu"
@@ -138,36 +152,37 @@
         app:layout_constraintEnd_toEndOf="@+id/setting"
         app:layout_constraintStart_toStartOf="@+id/setting"
         app:layout_constraintTop_toBottomOf="@+id/setting" />
+
     <LinearLayout
         android:id="@+id/linear_media"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="48dp"
+        android:gravity="center"
         android:orientation="horizontal"
+        android:padding="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:padding="32dp"
-        android:gravity="center"
 
-        >
+        app:layout_constraintTop_toBottomOf="@+id/bg_menu">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_instagram_main"
             android:layout_marginRight="24dp"
-            />
+            android:background="@drawable/ic_instagram_main" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_facebook_main"
             android:layout_marginRight="24dp"
-            />
+            android:background="@drawable/ic_facebook_main" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_telegram_main"
-            />
+            android:background="@drawable/ic_telegram_main" />
 
     </LinearLayout>
 

@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_teams">
+    tools:context=".activities.TeamsActivity">
+
     <TextView
         android:id="@+id/komandalar"
         android:layout_width="wrap_content"
@@ -14,11 +15,11 @@
         android:textColor="@color/yellow"
         android:textSize="44sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/Ad"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="96dp"/>
+        app:layout_constraintVertical_bias="0.25" />
     <TextView
         android:id="@+id/Ad"
         android:layout_width="96dp"
@@ -31,11 +32,11 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="@id/komanda_1_edit"
+        app:layout_constraintStart_toStartOf="@id/team_1_name"
         app:layout_constraintTop_toBottomOf="@id/komandalar"
-        app:layout_constraintBottom_toTopOf="@id/komanda_1_edit"/>
+        app:layout_constraintBottom_toTopOf="@id/team_1_name"/>
     <EditText
-        android:id="@+id/komanda_1_edit"
+        android:id="@+id/team_1_name"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:hint="Komanda 1"
@@ -44,11 +45,11 @@
         android:background="@drawable/time_xett"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/komanda_2_edit"
+        app:layout_constraintBottom_toTopOf="@id/team_2_name"
         app:layout_constraintTop_toBottomOf="@id/Ad"
         />
     <EditText
-        android:id="@+id/komanda_2_edit"
+        android:id="@+id/team_2_name"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:hint="Komanda 2"
@@ -57,36 +58,36 @@
         android:background="@drawable/time_xett"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/komanda_1_edit"
+        app:layout_constraintTop_toBottomOf="@id/team_1_name"
         />
 
     <TextView
-        android:id="@+id/round_sayi"
+        android:id="@+id/round_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/linear_spiderman"
         android:layout_marginTop="48dp"
+        android:backgroundTint="@color/linear_spiderman"
         android:text="Raund sayı"
         android:textAlignment="center"
         android:textColor="@color/linear_spiderman"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/komanda_2_edit"
-        app:layout_constraintTop_toBottomOf="@id/komanda_2_edit" />
+        app:layout_constraintStart_toStartOf="@+id/team_2_name"
+        app:layout_constraintTop_toBottomOf="@id/team_2_name" />
 
-    <TextView
-        android:id="@+id/text_round_sayi"
+    <EditText
+        android:id="@+id/round_count"
         android:layout_width="96dp"
         android:layout_height="56dp"
         android:background="@drawable/time_xett"
         android:padding="8dp"
-        android:text="3"
+        android:text="4"
         android:textAlignment="center"
         android:textColor="@color/linear_spiderman"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/round_sayi"
-        app:layout_constraintEnd_toEndOf="@+id/komanda_2_edit"
-        app:layout_constraintTop_toTopOf="@+id/round_sayi" />
+        app:layout_constraintBottom_toBottomOf="@+id/round_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/team_2_name"
+        app:layout_constraintTop_toTopOf="@+id/round_text_view" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bitdi"
         android:layout_width="wrap_content"
@@ -96,10 +97,9 @@
         android:textAllCaps="false"
         android:text="Bitdi"
         android:textSize="20sp"
-        android:textStyle="italic"
         android:textColor="@color/linear_spiderman"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/round_sayi" />
+        app:layout_constraintTop_toBottomOf="@id/round_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
