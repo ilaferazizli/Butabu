@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.InfoActivity"
-    android:background="@color/dark_pink">
+    android:background="@color/dark_backround">
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="wrap_content"
@@ -89,20 +89,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bi_instagram"
+            android:background="@drawable/ic_instagram_main"
             android:layout_marginRight="24dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bi_facebook"
+            android:background="@drawable/ic_facebook_main"
             android:layout_marginRight="24dp"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bi_telegram"
-            android:layout_marginLeft="24dp"
+            android:background="@drawable/ic_telegram_main"
             />
 
     </LinearLayout>

@@ -21,19 +21,17 @@
         android:layout_marginTop="96dp"/>
     <TextView
         android:id="@+id/Ad"
-        android:layout_width="156dp"
-        android:layout_height="56dp"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_white_rounded"
-        android:backgroundTint="@color/linear_spiderman"
         android:padding="12dp"
         android:text="Ad"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/linear_spiderman"
         android:textSize="20sp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         android:layout_marginTop="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/komanda_1_edit"
         app:layout_constraintTop_toBottomOf="@id/komandalar"
         app:layout_constraintBottom_toTopOf="@id/komanda_1_edit"/>
     <EditText
@@ -64,17 +62,15 @@
 
     <TextView
         android:id="@+id/round_sayi"
-        android:layout_width="156dp"
-        android:layout_height="56dp"
-        android:background="@drawable/bg_white_rounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/linear_spiderman"
-        android:padding="12dp"
         android:layout_marginTop="48dp"
         android:text="Raund sayı"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/linear_spiderman"
         android:textSize="20sp"
-        android:textStyle="italic"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/komanda_2_edit"
         app:layout_constraintTop_toBottomOf="@id/komanda_2_edit" />
 
@@ -101,6 +97,7 @@
         android:text="Bitdi"
         android:textSize="20sp"
         android:textStyle="italic"
+        android:textColor="@color/linear_spiderman"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
