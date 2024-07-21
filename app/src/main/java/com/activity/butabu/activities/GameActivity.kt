@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -28,7 +29,7 @@ import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
-    private var countDownTime=60
+    private var countDownTime=GameProperties.time
     private var clockTime = (countDownTime * 1000).toLong()
     private var progressTime = (clockTime / 1000).toFloat()
     private var secondLeft=0
@@ -47,6 +48,7 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -56,7 +58,7 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        customCountDownTimer = object : CustomCountDownTimer(60000, 1000) {}
+        customCountDownTimer = object : CustomCountDownTimer(clockTime, 1000) {}
         customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
 
         when(intent.getStringExtra("level")){

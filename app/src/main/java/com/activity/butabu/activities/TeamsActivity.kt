@@ -25,15 +25,23 @@ class TeamsActivity : AppCompatActivity() {
         }
         binding = ActivityTeamsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        loadSettings()
         binding.bitdi.setOnClickListener {
             saveSettings()
             finish()
         }
     }
     private fun saveSettings(){
-        Team1.name=binding.team1Name.text.toString()
-        Team2.name=binding.team2Name.text.toString()
+        if(binding.team1Name.text.toString().isNotEmpty() && binding.team2Name.text.toString().isNotEmpty()) {
+            Team1.name = binding.team1Name.text.toString()
+            Team2.name = binding.team2Name.text.toString()
+        }
         GameProperties.roundTotal=binding.roundCount.text.toString().toInt()
         Toast.makeText(this, "Parametrler deyişdirildi", Toast.LENGTH_SHORT).show()
+    }
+    private fun loadSettings(){
+        binding.team1Name.setHint(Team1.name)
+        binding.team2Name.setHint(Team2.name)
+        binding.roundCount.setText(GameProperties.roundTotal.toString())
     }
 }

@@ -25,40 +25,43 @@ class SettingActivity : AppCompatActivity() {
         }
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        loadSettings()
         binding.saveSettings.setOnClickListener {
             saveSettings()
             finish()
         }
 
-        val languages = arrayOf("Azərbaycan dili", "English", "Türkçe")
-        val adapter = ArrayAdapter(this, R.layout.drop_down_layout, languages)
-        binding.languageDropdown.setAdapter(adapter)
-
-        binding.languageDropdown.setOnItemClickListener { parent, view, position, id ->
-            val selectedLanguage = languages[position]
-            GameProperties.language=selectedLanguage
-            Toast.makeText(this, "Selected language: $selectedLanguage", Toast.LENGTH_SHORT).show()
-        }
         binding.goTeams.setOnClickListener {
             saveSettings()
             val intent = Intent(this, TeamsActivity::class.java)
             startActivity(intent)
         }
+
+        timeDropDown()
+        langDropDown()
+
     }
-    private fun timeStringToSeconds(timeString: String): Int {
-        val parts = timeString.split(":")
-        if (parts.size == 2) {
-            val minutes = parts[0].toIntOrNull() ?: 0
-            val seconds = parts[1].toIntOrNull() ?: 0
-            return minutes * 60 + seconds
-        } else {
-            return 0
-        }
-    }
+
     private fun saveSettings() {
-        GameProperties.time = timeStringToSeconds(binding.time.text.toString())
+        GameProperties.time = binding.timeEditText.text.toString().toInt()
         GameProperties.passCount = binding.passCount.text.toString().toInt()
-        GameProperties.warningSound= binding.warningSound.isActivated
+        GameProperties.warningSound= binding.warningSound.isChecked
+        GameProperties.language=binding.languageDropdown.text.toString()
         Toast.makeText(this, "Parametrler deyişdirildi", Toast.LENGTH_SHORT).show()
+    }
+    private fun loadSettings() {
+        binding.timeEditText.setText(GameProperties.time.toString())
+        binding.passCount.setText(GameProperties.passCount.toString())
+        binding.warningSound.isChecked=GameProperties.warningSound
+    }
+    private fun timeDropDown() {
+        val times = arrayOf("10", "30", "60", "90")
+        val adapter = ArrayAdapter(this, R.layout.drop_down_layout_time, times)
+        binding.timeEditText.setAdapter(adapter)
+    }
+    private fun langDropDown(){
+        val languages = arrayOf("Azərbaycan dili", "English", "Türkçe")
+        val adapter = ArrayAdapter(this, R.layout.drop_down_layout_lang, languages)
+        binding.languageDropdown.setAdapter(adapter)
     }
 }
