@@ -134,17 +134,28 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="547dp" />
-
-    <Button
-        android:id="@+id/save"
+    <ImageView
+        android:id="@+id/back_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bitdi"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="24dp"
+        android:background="@drawable/ic_back_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/linear_spiderman"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_settings"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_button"
         android:backgroundTint="@color/yellow"
-        android:paddingHorizontal="70dp"
-        android:paddingVertical="16dp"
-        android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textColor="@color/linear_spiderman"
+        android:textAllCaps="false"
+        android:text="Bitdi"
+        android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

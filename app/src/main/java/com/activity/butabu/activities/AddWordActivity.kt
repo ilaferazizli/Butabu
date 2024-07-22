@@ -24,7 +24,7 @@ class AddWordActivity : AppCompatActivity() {
         }
         binding = ActivityAddWordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.save.setOnClickListener {
+        binding.saveSettings.setOnClickListener {
             addWordToFireStore()
             Toast.makeText(this, "Əlavə edildi", Toast.LENGTH_SHORT).show()
             finish()
