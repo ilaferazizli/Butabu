@@ -15,7 +15,7 @@ import com.activity.butabu.databinding.AlertGameOverBinding
 import com.activity.butabu.objects.GameProperties.roundTotal
 import com.activity.butabu.objects.GameProperties.roundCurrent
 
-class CustomAlertDialog(private val context: Context, private val customCountDownTimer: CustomCountDownTimer) {
+class GameOverAlert(private val context: Context, private val customCountDownTimer: CustomCountDownTimer) {
     
     private var alertDialog: AlertDialog? = null
 

@@ -50,12 +50,50 @@ class FireStoreRepository{
         val db = FirebaseFirestore.getInstance()
         val wordsCollection = db.collection("MainWords")
 
-        wordsCollection.add(word)
-            .addOnSuccessListener { documentReference ->
-                Log.d("Firestore", "Word added with ID: ${documentReference.id}")
+        wordsCollection.whereEqualTo("mainWord", word.mainWord)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (querySnapshot.isEmpty) {
+                    wordsCollection.add(word)
+                        .addOnSuccessListener { documentReference ->
+                            Log.d("Firestore", "Word added with ID: ${documentReference.id}")
+                        }
+                        .addOnFailureListener { e ->
+                            Log.e("Firestore", "Error adding word", e)
+                        }
+                } else {
+                    Log.d("Firestore", "Word already exists")
+                }
             }
             .addOnFailureListener { e ->
-                Log.e("Firestore", "Error adding word", e)
+                Log.e("Firestore", "Error checking word", e)
             }
     }
+    fun fetchAndDeleteData() {
+        val db = Firebase.firestore
+        db.collection("MainWords")
+            .get()
+            .addOnSuccessListener { result ->
+                Log.d("FirestoreRepository", "Words fetched successfully")
+                for (document in result) {
+                    val word = document.toObject(Words::class.java)
+                    if (word.mainWord.length > 9) {
+                        db.collection("MainWords").document(document.id)
+                            .delete()
+                            .addOnSuccessListener {
+                                Log.d("FirestoreRepository", "Document with word ${word.mainWord} successfully deleted")
+                            }
+                            .addOnFailureListener { exception ->
+                                Log.e("FirestoreRepository", "Error deleting document: ${exception.message}")
+                            }
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("FirestoreRepository", "Error fetching words: ${exception.message}")
+            }
+    }
+
+
+
 }

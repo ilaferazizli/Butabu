@@ -7,14 +7,18 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.activity.butabu.CustomAlertDialog
+import com.activity.butabu.GameOverAlert
 import com.activity.butabu.CustomCountDownTimer
+import com.activity.butabu.QuitWarning
 import com.activity.butabu.R
 import com.activity.butabu.databinding.ActivityGameBinding
 import com.activity.butabu.dataclasses.Words
@@ -37,12 +41,12 @@ class GameActivity : AppCompatActivity() {
     private val onBackPressCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             onBackPressedCustom()
-            resetValues()
         }
     }
     private val fireStoreRepository = FireStoreRepository()
     private var usedWordList = FireStoreRepository.usedWordList
-    private lateinit var customAlertDialog: CustomAlertDialog
+    private lateinit var customAlertDialog: GameOverAlert
+    private lateinit var quitWarning: QuitWarning
     private lateinit var customCountDownTimer: CustomCountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,12 +58,13 @@ class GameActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.nextCount.text = GameProperties.passCount.toString()
         customCountDownTimer = object : CustomCountDownTimer(clockTime, 1000) {}
-        customAlertDialog = CustomAlertDialog(this, customCountDownTimer)
+        customAlertDialog = GameOverAlert(this, customCountDownTimer)
+        quitWarning = QuitWarning(this, customCountDownTimer)
 
         when(intent.getStringExtra("level")){
             "sade" -> {
@@ -98,7 +103,8 @@ class GameActivity : AppCompatActivity() {
     }
     private fun onBackPressedCustom() {
         customCountDownTimer.destroy()
-        finish()
+        quitWarning.showGameOverDialog()
+        changeTimerColor(R.color.green)
     }
     private fun setupTimer(){
         onBackPressedDispatcher.addCallback(this, onBackPressCallback)
@@ -107,7 +113,7 @@ class GameActivity : AppCompatActivity() {
             if(second!=secondLeft){
                 secondLeft=second
             }
-            if(progressTime.toInt() ==4*secondLeft){
+            if(progressTime.toInt() >=4*secondLeft){
                 if(GameProperties.warningSound){
                     val mediaPlayer= MediaPlayer.create(this, R.raw.bell_sound)
                     mediaPlayer.start()
@@ -137,8 +143,7 @@ class GameActivity : AppCompatActivity() {
         }
 
         binding.backBack.setOnClickListener {
-            finish()
-            resetValues()
+            quitWarning.showGameOverDialog()
         }
         binding.pause.setOnClickListener {
             customCountDownTimer.pauseTimer()
@@ -168,12 +173,23 @@ class GameActivity : AppCompatActivity() {
             slideWords()
             when(button.id){
                 R.id.cancel -> {
+                    if(!Team1.played){
+                        Team1.totalCorrect++
+                        binding.team1.text = Team1.totalCorrect.toString()
+                    }
+                    else{
+                        Team2.totalCorrect++
+                        binding.team2.text = Team2.totalCorrect.toString()
+                    }
                     cancelledWord++
                     text.text = cancelledWord.toString()
                 }
                 R.id.next -> {
                     nextWord++
-                    text.text = nextWord.toString()
+                    if(nextWord==GameProperties.passCount){
+                        passLimitReached(binding)
+                    }
+                    "${GameProperties.passCount - nextWord}".also { text.text = it }
                 }
                 R.id.done -> {
                     if(!Team1.played){
@@ -189,23 +205,6 @@ class GameActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-    private fun resetValues(){
-        cancelledWord=0
-        nextWord=0
-        correctWord=0
-        Team1.totalCancelled=0
-        Team1.totalCorrect=0
-        Team1.totalNext=0
-        Team2.totalCancelled=0
-        Team2.totalCorrect=0
-        Team2.totalNext=0
-        Team1.played=false
-        Team2.played=false
-        GameProperties.roundCurrent=1
-        changeTimerColor(R.color.green)
-        wordList.clear()
-        usedWordList.clear()
     }
     private fun generateWords(direction: String){
         val word:Words
@@ -228,6 +227,36 @@ class GameActivity : AppCompatActivity() {
         binding.prohibited3.text=word.prohibitedWords[2]
         binding.prohibited4.text=word.prohibitedWords[3]
     }
+    private fun passLimitReached(binding: ActivityGameBinding){
+        val shrinkAnimationLeft = ScaleAnimation(
+            1f, 0f,
+            1f, 0f,
+            Animation.RELATIVE_TO_SELF, 0.9f,
+            Animation.RELATIVE_TO_SELF, 0.5f
+        )
+        val shrinkAnimationRight = ScaleAnimation(
+            1f, 0f,
+            1f, 0f,
+            Animation.RELATIVE_TO_SELF, 0.1f,
+            Animation.RELATIVE_TO_SELF, 0.5f
+        )
+        shrinkAnimationLeft.duration = 500
+        shrinkAnimationRight.duration = 500
+
+        binding.next.startAnimation(shrinkAnimationLeft)
+        binding.nextCount.startAnimation(shrinkAnimationRight)
+        shrinkAnimationLeft.setAnimationListener(
+            object : Animation.AnimationListener{
+                override fun onAnimationStart(animation: Animation?) {}
+
+                override fun onAnimationEnd(animation: Animation?) {
+                    binding.next.visibility=View.GONE
+                    binding.nextCount.visibility=View.GONE
+                }
+                override fun onAnimationRepeat(animation: Animation?) {}
+            }
+        )
+    }
     private fun slideWords(){
         listOf(binding.returnLastWord,binding.mainWord,binding.linearLayoutOyun).forEach {
             val firstAnimator=ObjectAnimator.ofFloat(it,"translationX", 0f, -1000f).apply {
@@ -246,5 +275,4 @@ class GameActivity : AppCompatActivity() {
             firstAnimator.start()
         }
     }
-
 }
