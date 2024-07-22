@@ -1,5 +1,6 @@
 package com.activity.butabu.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,10 @@ class GameOverActivity : AppCompatActivity() {
         }
         binding = ActivityGameOverBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.playAgain.setOnClickListener {
+            val intent = Intent(this, GameActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.komanda1.text=Team1.name
         binding.komanda2.text= Team2.name

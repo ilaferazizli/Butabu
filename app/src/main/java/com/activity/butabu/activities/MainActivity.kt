@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.activity.butabu.R
 import com.activity.butabu.databinding.ActivityMainBinding
+import com.activity.butabu.objects.FireStoreRepository
 import com.activity.butabu.objects.Objects
 
 class MainActivity : AppCompatActivity() {

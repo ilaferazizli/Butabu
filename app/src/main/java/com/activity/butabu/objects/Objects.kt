@@ -11,49 +11,173 @@ class Objects {
     }
 
     private fun createWords(){
-        val prohibitedWords1 = listOf("Zəng", "Mobil", "Cihaz", "Nömrə")
-        val prohibitedWords2 = listOf("Oxumaq", "Roman", "Cild", "Səhifə")
-        val prohibitedWords3 = listOf("Laptop", "Texnologiya", "İnternet", "Ekran")
-        val prohibitedWords4 = listOf("Maşın", "Sürmək", "Təkər", "Yol")
-        val prohibitedWords5 = listOf("Su", "Dalğa", "Göl", "Qum")
-        val prohibitedWords6 = listOf("Ev", "Qadın", "Yemək", "Təmizlik")
-        val prohibitedWords7 = listOf("Musiqi", "Çalmaq", "Səs", "Alət")
-        val prohibitedWords8 = listOf("Damcı", "Bulud", "Yağmaq", "Hava")
-        val prohibitedWords9 = listOf("Top", "Komanda", "Oyun", "Qapı")
-        val prohibitedWords10 = listOf("İşıq", "Ulduz", "İsti", "Gecə")
-        val prohibitedWords11 = listOf("Nişan", "Gəlin", "Bəy", "Məclis")
-        val prohibitedWords12 = listOf("Şüşə", "Divar", "Açmaq", "Bağlamaq")
-        val prohibitedWords13 = listOf("Valyuta", "Bank", "Məzənnə", "Kağız")
-        val prohibitedWords14 = listOf("Gülmək", "Film", "Zarafat", "Tamaşa")
-        val prohibitedWords15 = listOf("Təyyarə", "Hava", "Qanad", "Səyahət")
-        val prohibitedWords16 = listOf("İçmək", "Su", "İsti", "Şirin")
-        val prohibitedWords17 = listOf("Bitki", "Ağac", "Çiçək", "Toxum")
-        val prohibitedWords18 = listOf("Tütün", "Çəkmək", "Alov", "Duman")
-        val prohibitedWords19 = listOf("Musiqi", "Alət", "Klaviatura", "Çalmaq")
-        val prohibitedWords20 = listOf("Texnologiya", "İnternet", "Ekran", "Maus")
+        val wordsList = listOf(
+            Words("Qarışıq", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Çətin", "Mürəkkəb", "Anlaşılmaz")),
+            Words("Metafizika", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Fəlsəfə", "Anlaşılmaz", "Abstrakt")),
+            Words("Epistemologiya", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Bilik", "Fəlsəfə", "Teoriya")),
+            Words("Ontologiya", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Fəlsəfə", "Varoluş", "Məntiq")),
+            Words("Dialektika", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Məntiq", "Fəlsəfə", "Münaqişə")),
+            Words("Fenomenologiya", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Fenomen", "Fəlsəfə", "Şüur")),
+            Words("Deontologiya", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Etika", "Mənsuliyyət", "Vəzifə")),
+            Words("Hermenevtika", "Düşüncə", "cetin", "azerbaycan", listOf("Düşüncə", "Yorumlama", "Fəlsəfə", "Metod")),
+            Words("Anarxiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Qarışıqlıq", "Təşkilatsızlıq", "Qaydasızlıq")),
+            Words("Totalitarizm", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Diktatura", "İdərə", "Çoxluq")),
+            Words("Despotizm", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Hakimiyyət", "Baskı", "Diktatura")),
+            Words("Demokratiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Azadlıq", "Hakimiyyət", "Səs")),
+            Words("Oligarxiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Azlıq", "Hakimiyyət", "İdarə")),
+            Words("Teokratiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Din", "Hakimiyyət", "Təşkilat")),
+            Words("Kleptokratiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Hakimiyyət", "Quldurluq", "Yolsuzluq")),
+            Words("Plutokratiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Zənginlik", "Hakimiyyət", "Yönetim")),
+            Words("Meritokratiya", "Siyasət", "cetin", "azerbaycan", listOf("Siyasət", "Liyakat", "Hakimiyyət", "Yönetim")),
+            Words("Neoliberalizm", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Siyasət", "Müasir", "Liberal")),
+            Words("Kapitalizm", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Sərmayə", "İstismar", "Ticarət")),
+            Words("Kommunizm", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Bərabərlik", "Siyasət", "Sistem")),
+            Words("Sosializm", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Bərabərlik", "Dövlət", "Sistem")),
+            Words("Feodalizm", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Tarix", "Sistem", "Hakimiyyət")),
+            Words("Neoklassik", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Məktəb", "Teoriya", "Sistem")),
+            Words("Makroiqtisadiyyat", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Böyük", "Sistem", "Milli")),
+            Words("Mikroiqtisadiyyat", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Kiçik", "Sistem", "Fərdi")),
+            Words("Monetarizm", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Pul", "Siyasət", "Teoriya")),
+            Words("Maliyyə", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Pul", "Təchizat", "İdarə")),
+            Words("Büdcə", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Pul", "Dövlət", "Plan")),
+            Words("Inflyasiya", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Pul", "Bahalaşma", "Qiymət")),
+            Words("Deflyasiya", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Pul", "Ucuzlaşma", "Qiymət")),
+            Words("Resessiya", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Tənəzzül", "Sistem", "Böhran")),
+            Words("Depressiya", "İqtisadiyyat", "cetin", "azerbaycan", listOf("İqtisadiyyat", "Böhran", "Tənəzzül", "Düşüş")),
+            Words("Beynəlxalq", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Ümumi", "Sistem", "Təşkilat")),
+            Words("Milliyətçilik", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Vətən", "İdeologiya", "Təşkilat")),
+            Words("Koalisiya", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Birlik", "İttifaq", "Təşkilat")),
+            Words("Pluralizm", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Çoxluq", "İdeologiya", "Təşkilat")),
+            Words("Tolerantlıq", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Qəbul", "Fərqlilik", "Hörmət")),
+            Words("Diskriminasiya", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Ayrıseçkilik", "Qəbul", "İnciklik")),
+            Words("Sekulyarizm", "Cəmiyyət", "cetin", "azerbaycan", listOf("Cəmiyyət", "Dünya", "Din", "Ayrı")),
+            Words("Revolyusiya", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Çevriliş", "İnqilab", "Dəyişiklik")),
+            Words("Evakuasiya", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Köç", "Xilas", "Boşaltma")),
+            Words("Kolonializm", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Sömürgə", "İmperiya", "Hakimiyyət")),
+            Words("İmperializm", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Hakimiyyət", "İşğal", "İmperiya")),
+            Words("Militarizm", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Hərbi", "Güclə", "Hakimiyyət")),
+            Words("Totalitarizm", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Diktatura", "Hakimiyyət", "Sistem")),
+            Words("Oportunizm", "Tarix", "cetin", "azerbaycan", listOf("Tarix", "Fırsatçılıq", "İdeologiya", "Strateji")),
+            Words("Sinolojiya", "Elm", "cetin", "azerbaycan", listOf("Elm", "Çin", "Mədəniyyət", "Tarix")),
+            Words("Antropologiya", "Elm", "cetin", "azerbaycan", listOf("Elm", "İnsan", "Mədəniyyət", "Tarix")),
+            Words("Semiotika", "Elm", "cetin", "azerbaycan", listOf("Elm", "İşarə", "Dil", "Mədəniyyət")),
+            Words("Kriptoqrafiya", "Elm", "cetin", "azerbaycan", listOf("Elm", "Şifre", "Təhlükəsizlik", "Kod")),
+            Words("Nanotexnologiya", "Elm", "cetin", "azerbaycan", listOf("Elm", "Kiçik", "Texnologiya", "İnnovasiya")),
+            Words("Kvant mexanikası", "Elm", "cetin", "azerbaycan", listOf("Elm", "Fizika", "Atom", "Teoriya")),
+            Words("Astrobiologiya", "Elm", "cetin", "azerbaycan", listOf("Elm", "Kosmos", "Həyat", "Axtarış")),
+            Words("Paleontologiya", "Elm", "cetin", "azerbaycan", listOf("Elm", "Tarix", "Fosil", "Dinozavr")),
+            Words("Metamorfoz", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Dəyişiklik", "Həyat", "Mərhələ")),
+            Words("Endemik", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Spesifik", "Region", "Canlı")),
+            Words("Epigenetik", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Genetik", "Dəyişiklik", "Nəsil")),
+            Words("Simbiotik", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Əlaqə", "Fayda", "Birgə")),
+            Words("Biodiverziya", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Çeşidlik", "Həyat", "Canlı")),
+            Words("Fotosintez", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Bitki", "Enerji", "Günəş")),
+            Words("Mutasiya", "Biologiya", "cetin", "azerbaycan", listOf("Biologiya", "Dəyişiklik", "Genetik", "Nəsil")),
+            Words("Ferment", "Kimya", "cetin", "azerbaycan", listOf("Kimya", "Katalizator", "Reaksiya", "Maddə")),
+            Words("Polimer", "Kimya", "cetin", "azerbaycan", listOf("Kimya", "Birləşmə", "Maddə", "Plastik")),
+            Words("Kristalloqrafiya", "Kimya", "cetin", "azerbaycan", listOf("Kimya", "Kristal", "Struktur", "Molekul")),
+            Words("Termodinamika", "Fizika", "cetin", "azerbaycan", listOf("Fizika", "Enerji", "İstilik", "Qanun")),
+            Words("Astrofizika", "Fizika", "cetin", "azerbaycan", listOf("Fizika", "Kosmos", "Ulduz", "Enerji")),
+            Words("Elektrodinamika", "Fizika", "cetin", "azerbaycan", listOf("Fizika", "Elektrik", "Maqlar", "Dalğa")),
+            Words("Optika", "Fizika", "cetin", "azerbaycan", listOf("Fizika", "İşıq", "Dalğa", "Görmə")),
+            Words("Biometrik", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "Şəxsiyyət", "Təhlükəsizlik", "Məlumat")),
+            Words("Kiber təhlükəsizlik", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "İnternet", "Mühafizə", "Məlumat")),
+            Words("Süni intellekt", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "İnnovasiya", "Komputer", "Məlumat")),
+            Words("Kvantu hesablama", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "Komputer", "Hesablama", "Məlumat")),
+            Words("Blokzincir", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "Kripto", "Məlumat", "Zəncir")),
+            Words("Nanorobot", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "Kiçik", "Robot", "İnnovasiya")),
+            Words("Protez", "Texnologiya", "cetin", "azerbaycan", listOf("Texnologiya", "Süni", "Orqan", "Mühafizə")),
+            Words("Kompilyator", "İT", "cetin", "azerbaycan", listOf("İT", "Proqram", "Kod", "Yazılım")),
+            Words("Kriptoqrafiya", "İT", "cetin", "azerbaycan", listOf("İT", "Şifrə", "Təhlükəsizlik", "Kod")),
+            Words("Algoritm", "İT", "cetin", "azerbaycan", listOf("İT", "Proqram", "Kod", "Hesablama")),
+            Words("Diferensial", "Riyaziyyat", "cetin", "azerbaycan", listOf("Riyaziyyat", "Hesablama", "Tənlik", "Dəyişmə")),
+            Words("İnteqral", "Riyaziyyat", "cetin", "azerbaycan", listOf("Riyaziyyat", "Hesablama", "Tənlik", "Sahə")),
+            Words("Statistika", "Riyaziyyat", "cetin", "azerbaycan", listOf("Riyaziyyat", "Analiz", "Məlumat", "Dəyişmə")),
+            Words("Lineer algebra", "Riyaziyyat", "cetin", "azerbaycan", listOf("Riyaziyyat", "Tənlik", "Matris", "Vektor")),
+            Words("Fraktal", "Riyaziyyat", "cetin", "azerbaycan", listOf("Riyaziyyat", "Geometriya", "Təkrarlanma", "Hədsiz")),
+            Words("Topologiya", "Riyaziyyat", "cetin", "azerbaycan", listOf("Riyaziyyat", "Geometriya", "Məkan", "Forma")),
+            Words("İşarət dili", "Dilçilik", "cetin", "azerbaycan", listOf("Dilçilik", "Əl", "Ünsiyyət", "Kod")),
+            Words("Sübut", "Hüquq", "cetin", "azerbaycan", listOf("Hüquq", "Məhkəmə", "İddia", "Təminat")),
+            Words("Pretsedent", "Hüquq", "cetin", "azerbaycan", listOf("Hüquq", "Qərar", "Keçmiş", "Təcrübə")),
+            Words("İnsider ticarəti", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Səhmdar", "Sənaye", "Qanun")),
+            Words("Françayzinq", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Ticarət", "Lisenziya", "Brend")),
+            Words("Xarici valyuta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Valyuta", "Dəyişmə", "Mübadilə")),
+            Words("İnnovasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Yenilik", "İxtira", "Təşkilat")),
+            Words("İnvestisiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Pul", "Kapital", "Gəlir")),
+            Words("Sığorta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Risk", "Qoruma", "Müqavilə")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Simulyasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Model", "Təcrübə", "Analiz")),
+            Words("Suveren", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "Dövlət", "Müstəqillik")),
+            Words("Diplomatiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Görüş", "Müqavilə", "Əlaqə")),
+            Words("Ərəb baharı", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Inqilab", "Siyasət", "Dəyişiklik")),
+            Words("Ekspansiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "İşğal", "Genişlənmə", "Siyasət")),
+            Words("İmperializm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "İşğal", "İmperiya")),
+            Words("Sanksiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Cəza", "Müqavilə", "Əlaqə")),
+            Words("Koalisiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Birlik", "İttifaq", "Təşkilat")),
+            Words("Separatizm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Ayrılıq", "Hərəkat", "Təşkilat")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Xarici valyuta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Valyuta", "Dəyişmə", "Mübadilə")),
+            Words("İnnovasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Yenilik", "İxtira", "Təşkilat")),
+            Words("İnvestisiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Pul", "Kapital", "Gəlir")),
+            Words("Sığorta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Risk", "Qoruma", "Müqavilə")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Simulyasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Model", "Təcrübə", "Analiz")),
+            Words("Suveren", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "Dövlət", "Müstəqillik")),
+            Words("Diplomatiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Görüş", "Müqavilə", "Əlaqə")),
+            Words("Ərəb baharı", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Inqilab", "Siyasət", "Dəyişiklik")),
+            Words("Ekspansiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "İşğal", "Genişlənmə", "Siyasət")),
+            Words("İmperializm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "İşğal", "İmperiya")),
+            Words("Sanksiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Cəza", "Müqavilə", "Əlaqə")),
+            Words("Koalisiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Birlik", "İttifaq", "Təşkilat")),
+            Words("Separatizm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Ayrılıq", "Hərəkat", "Təşkilat")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Xarici valyuta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Valyuta", "Dəyişmə", "Mübadilə")),
+            Words("İnnovasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Yenilik", "İxtira", "Təşkilat")),
+            Words("İnvestisiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Pul", "Kapital", "Gəlir")),
+            Words("Sığorta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Risk", "Qoruma", "Müqavilə")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Simulyasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Model", "Təcrübə", "Analiz")),
+            Words("Suveren", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "Dövlət", "Müstəqillik")),
+            Words("Diplomatiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Görüş", "Müqavilə", "Əlaqə")),
+            Words("Ərəb baharı", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Inqilab", "Siyasət", "Dəyişiklik")),
+            Words("Ekspansiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "İşğal", "Genişlənmə", "Siyasət")),
+            Words("İmperializm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "İşğal", "İmperiya")),
+            Words("Sanksiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Cəza", "Müqavilə", "Əlaqə")),
+            Words("Koalisiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Birlik", "İttifaq", "Təşkilat")),
+            Words("Separatizm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Ayrılıq", "Hərəkat", "Təşkilat")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Xarici valyuta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Valyuta", "Dəyişmə", "Mübadilə")),
+            Words("İnnovasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Yenilik", "İxtira", "Təşkilat")),
+            Words("İnvestisiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Pul", "Kapital", "Gəlir")),
+            Words("Sığorta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Risk", "Qoruma", "Müqavilə")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Simulyasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Model", "Təcrübə", "Analiz")),
+            Words("Suveren", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "Dövlət", "Müstəqillik")),
+            Words("Diplomatiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Görüş", "Müqavilə", "Əlaqə")),
+            Words("Ərəb baharı", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Inqilab", "Siyasət", "Dəyişiklik")),
+            Words("Ekspansiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "İşğal", "Genişlənmə", "Siyasət")),
+            Words("İmperializm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "İşğal", "İmperiya")),
+            Words("Sanksiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Cəza", "Müqavilə", "Əlaqə")),
+            Words("Koalisiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Birlik", "İttifaq", "Təşkilat")),
+            Words("Separatizm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Ayrılıq", "Hərəkat", "Təşkilat")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Xarici valyuta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Valyuta", "Dəyişmə", "Mübadilə")),
+            Words("İnnovasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Yenilik", "İxtira", "Təşkilat")),
+            Words("İnvestisiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Pul", "Kapital", "Gəlir")),
+            Words("Sığorta", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Risk", "Qoruma", "Müqavilə")),
+            Words("İnhisar", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Bazarda", "Nəzarət", "Hakimiyyət")),
+            Words("Simulyasiya", "Biznes", "cetin", "azerbaycan", listOf("Biznes", "Model", "Təcrübə", "Analiz")),
+            Words("Suveren", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "Dövlət", "Müstəqillik")),
+            Words("Diplomatiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Görüş", "Müqavilə", "Əlaqə")),
+            Words("Ərəb baharı", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Inqilab", "Siyasət", "Dəyişiklik")),
+            Words("Ekspansiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "İşğal", "Genişlənmə", "Siyasət")),
+            Words("İmperializm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Hakimiyyət", "İşğal", "İmperiya")),
+            Words("Sanksiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Cəza", "Müqavilə", "Əlaqə")),
+            Words("Koalisiya", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Birlik", "İttifaq", "Təşkilat")),
+            Words("Separatizm", "Beynəlxalq münasibətlər", "cetin", "azerbaycan", listOf("Beynəlxalq münasibətlər", "Ayrılıq", "Hərəkat", "Təşkilat")),
+        )
 
-        val word1 = Words("Telefon", "category1", "sade", "language1", prohibitedWords1)
-        val word2 = Words("Kitab", "category2", "sade", "language2", prohibitedWords2)
-        val word3 = Words("Komputer", "category3", "sade", "language3", prohibitedWords3)
-        val word4 = Words("Avtomobil", "category4", "sade", "language4", prohibitedWords4)
-        val word5 = Words("Dəniz", "category5", "sade", "language5", prohibitedWords5)
-        val word6 = Words("Evdar", "category6", "sade", "language6", prohibitedWords6)
-        val word7 = Words("Gitar", "category7", "sade", "language7", prohibitedWords7)
-        val word8 = Words("Yağış", "category8", "sade", "language8", prohibitedWords8)
-        val word9 = Words("Futbol", "category9", "sade", "language9", prohibitedWords9)
-        val word10 = Words("Günəş", "category10", "sade", "language10", prohibitedWords10)
-        val word11 = Words("Toy", "category11", "sade", "language11", prohibitedWords11)
-        val word12 = Words("Pəncərə", "category12", "sade", "language12", prohibitedWords12)
-        val word13 = Words("Pul", "category13", "sade", "language13", prohibitedWords13)
-        val word14 = Words("Komediya", "category14", "sade", "language14", prohibitedWords14)
-        val word15 = Words("Uçmaq", "category15", "sade", "language15", prohibitedWords15)
-        val word16 = Words("Çay", "category16", "sade", "language16", prohibitedWords16)
-        val word17 = Words("Bağ", "category17", "sade", "language17", prohibitedWords17)
-        val word18 = Words("Siqaret", "category18", "sade", "language18", prohibitedWords18)
-        val word19 = Words("Piano", "category19", "sade", "language19", prohibitedWords19)
-        val word20 = Words("Kompüter", "category20", "sade", "language20", prohibitedWords20)
-
-        for (i in listOf(word1, word2, word3, word4, word5, word6, word7, word8, word9, word10, word11, word12, word13, word14, word15, word16, word17, word18, word19, word20)){
+        for (i in wordsList){
             FireStoreRepository().writeData(i)
         }
     }

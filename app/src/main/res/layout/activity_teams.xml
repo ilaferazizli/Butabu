@@ -82,6 +82,7 @@
         android:background="@drawable/time_xett"
         android:padding="8dp"
         android:text="4"
+        android:inputType="time"
         android:textAlignment="center"
         android:textColor="@color/linear_spiderman"
         android:textSize="24sp"
