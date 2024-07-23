@@ -7,4 +7,7 @@ object GameProperties {
     var time=60
     var warningSound = false
     var language="Azerbaycan dili"
+    fun reset(){
+        roundCurrent = 1
+    }
 }

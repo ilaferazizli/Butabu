@@ -44,6 +44,8 @@ class DifficultyActivity : AppCompatActivity() {
                         button ->
                     binding.loading.visibility= View.VISIBLE
                     FireStoreRepository().fetchData(
+                        searchWith = "difficulty",
+                        searchValue = "${button.tag}",
                         onFetchComplete = {
                             binding.loading.visibility= View.INVISIBLE
                             Log.d("MainActivity", "Words fetched successfully")

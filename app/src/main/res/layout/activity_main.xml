@@ -79,6 +79,17 @@
         app:layout_constraintStart_toStartOf="@+id/play"
         app:layout_constraintTop_toBottomOf="@+id/play" />
 
+    <ProgressBar
+        android:id="@+id/loading_solo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"
+        android:elevation="1dp"
+        app:layout_constraintStart_toStartOf="@+id/solo_game"
+        app:layout_constraintBottom_toBottomOf="@+id/solo_game"
+        app:layout_constraintEnd_toEndOf="@+id/solo_game"
+        app:layout_constraintTop_toTopOf="@+id/solo_game" />
     <ImageButton
         android:id="@+id/solo_game"
         android:layout_width="wrap_content"
@@ -92,13 +103,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/play"
         app:layout_constraintTop_toTopOf="@+id/bg_menu" />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:text="Solo Oyun"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:layout_margin="8dp"
         app:layout_constraintEnd_toEndOf="@+id/solo_game"
         app:layout_constraintStart_toStartOf="@+id/solo_game"
         app:layout_constraintTop_toBottomOf="@+id/solo_game" />
@@ -168,6 +181,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bg_menu">
 
         <TextView
+            android:id="@+id/instagram"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="24dp"

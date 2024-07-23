@@ -26,6 +26,9 @@ class TeamsActivity : AppCompatActivity() {
         binding = ActivityTeamsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadSettings()
+        binding.backBack.setOnClickListener {
+            finish()
+        }
         binding.bitdi.setOnClickListener {
             saveSettings()
             finish()

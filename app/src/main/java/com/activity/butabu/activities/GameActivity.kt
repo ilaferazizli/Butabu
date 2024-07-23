@@ -37,7 +37,7 @@ class GameActivity : AppCompatActivity() {
     private var clockTime = (countDownTime * 1000).toLong()
     private var progressTime = (clockTime / 1000).toFloat()
     private var secondLeft=0
-    private var wordList = FireStoreRepository.easyWordList
+    private var wordList = FireStoreRepository.wordList
     private val onBackPressCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             onBackPressedCustom()
@@ -65,18 +65,6 @@ class GameActivity : AppCompatActivity() {
         customCountDownTimer = object : CustomCountDownTimer(clockTime, 1000) {}
         customAlertDialog = GameOverAlert(this, customCountDownTimer)
         quitWarning = QuitWarning(this, customCountDownTimer)
-
-        when(intent.getStringExtra("level")){
-            "sade" -> {
-                wordList = FireStoreRepository.easyWordList
-            }
-            "orta" -> {
-                wordList = FireStoreRepository.mediumWordList
-            }
-            "cetin" -> {
-                wordList = FireStoreRepository.hardWordList
-            }
-        }
 
         Log.d("Log", "Size: ${wordList.size}")
         generateWords("next")
@@ -157,6 +145,7 @@ class GameActivity : AppCompatActivity() {
         }
         binding.returnLastWord.setOnClickListener {
             generateWords("back")
+            slideWords(0f,1000f,-1000f,0f)
         }
     }
     private fun changeTimerColor(color:Int){
@@ -170,7 +159,7 @@ class GameActivity : AppCompatActivity() {
     private fun countWord(button:View, text: TextView,){
         button.setOnClickListener{
             generateWords("next")
-            slideWords()
+            slideWords(0f,-1000f,1000f,0f)
             when(button.id){
                 R.id.cancel -> {
                     if(!Team1.played){
@@ -257,12 +246,12 @@ class GameActivity : AppCompatActivity() {
             }
         )
     }
-    private fun slideWords(){
+    private fun slideWords(leftFrom:Float,leftTo:Float,rightFrom:Float,rightTo:Float){
         listOf(binding.returnLastWord,binding.mainWord,binding.linearLayoutOyun).forEach {
-            val firstAnimator=ObjectAnimator.ofFloat(it,"translationX", 0f, -1000f).apply {
+            val firstAnimator=ObjectAnimator.ofFloat(it,"translationX", leftFrom, leftTo).apply {
                 duration = 200
             }
-            val secondAnimator=ObjectAnimator.ofFloat(it,"translationX", 1000f, 0f).apply {
+            val secondAnimator=ObjectAnimator.ofFloat(it,"translationX", rightFrom, rightTo).apply {
                 duration = 200
             }
             firstAnimator.addListener(
