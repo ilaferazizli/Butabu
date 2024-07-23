@@ -1,5 +1,6 @@
 package com.activity.butabu
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -24,6 +25,10 @@ class GameOverAlert(private val context: Context, private val customCountDownTim
         val view = AlertGameOverBinding.inflate(LayoutInflater.from(context))
         builder.setView(view.root)
 
+        view.geri.setOnClickListener {
+            (context as? Activity)?.finish()
+            customCountDownTimer.destroy()
+        }
         view.start.setOnClickListener {
             alertDialog?.dismiss()
             cancelledWord = 0

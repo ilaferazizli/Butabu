@@ -8,6 +8,16 @@
     tools:context=".activities.CategoryActivity"
     android:background="@color/dark_backround">
 
+    <ProgressBar
+        android:id="@+id/loading"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/linear_parametrler"
+        app:layout_constraintEnd_toEndOf="@+id/kateqoriyalar"
+        app:layout_constraintStart_toStartOf="@+id/kateqoriyalar" />
     <TextView
         android:id="@+id/kateqoriyalar"
         android:layout_width="wrap_content"
@@ -47,12 +57,14 @@
 
 
         <TextView
+            android:id="@+id/thing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Əşya"
+            android:tag="Əşya"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -60,33 +72,39 @@
 
 
         <TextView
+            android:id="@+id/place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Yer"
+            android:tag="Yer"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/food"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Yemək"
+            android:tag="Yemək"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/animal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:tag="Heyvan"
             android:background="@drawable/bg_white_rounded"
             android:padding="6dp"
             android:text="Heyvan"

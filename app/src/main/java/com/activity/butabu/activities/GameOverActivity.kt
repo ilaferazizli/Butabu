@@ -2,6 +2,7 @@ package com.activity.butabu.activities
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +14,14 @@ import com.activity.butabu.objects.Team2
 
 class GameOverActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameOverBinding
+    private val onBackPressCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            val intent = Intent(this@GameOverActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+            finish()
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
@@ -23,6 +32,7 @@ class GameOverActivity : AppCompatActivity() {
         }
         binding = ActivityGameOverBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        onBackPressedDispatcher.addCallback(this, onBackPressCallback)
         binding.playAgain.setOnClickListener {
             val intent = Intent(this, GameActivity::class.java)
             startActivity(intent)

@@ -15,6 +15,7 @@
         android:text="Çıxmaq istədiyinizə əminsiniz?"
         android:textColor="@color/linear_spiderman"
         android:textStyle="bold"
+        android:textAlignment="center"
         android:textSize="18sp"/>
     <LinearLayout
         android:layout_width="wrap_content"

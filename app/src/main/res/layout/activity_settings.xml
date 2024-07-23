@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="24dp"
+        android:layout_marginVertical="48dp"
         android:background="@drawable/ic_back_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,14 +29,13 @@
         app:layout_constraintBottom_toTopOf="@id/vaxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/back_back" />
 
 
     <TextView
         android:id="@+id/vaxt"
         android:layout_width="156dp"
         android:layout_height="56dp"
-        android:layout_marginTop="64dp"
         android:background="@drawable/bg_white_rounded"
         android:padding="12dp"
         android:text="Vaxt"

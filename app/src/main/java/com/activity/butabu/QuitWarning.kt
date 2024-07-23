@@ -6,9 +6,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import com.activity.butabu.databinding.ActivityGameBinding
 import com.activity.butabu.databinding.AlertQuitWarningBinding
+import com.activity.butabu.objects.GameProperties
 import com.activity.butabu.objects.GameProperties.roundCurrent
 import com.activity.butabu.objects.Team1
 import com.activity.butabu.objects.Team2
+import com.activity.butabu.objects.WordCounts
 import com.activity.butabu.objects.WordCounts.cancelledWord
 import com.activity.butabu.objects.WordCounts.correctWord
 import com.activity.butabu.objects.WordCounts.nextWord
@@ -40,18 +42,10 @@ class QuitWarning(private val context: Context,private val customCountDownTimer:
         alertDialog?.show()
     }
     private fun resetValues(){
-        cancelledWord=0
-        nextWord=0
-        correctWord=0
-        Team1.totalCancelled=0
-        Team1.totalCorrect=0
-        Team1.totalNext=0
-        Team2.totalCancelled=0
-        Team2.totalCorrect=0
-        Team2.totalNext=0
-        Team1.played=false
-        Team2.played=false
-        roundCurrent=1
+        WordCounts.reset()
+        Team1.reset()
+        Team2.reset()
+        GameProperties.reset()
     }
     private fun changeTimerColor(color:Int, binding: ActivityGameBinding){
         val resources = context.resources

@@ -2,13 +2,15 @@ package com.activity.butabu.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.activity.butabu.R
 import com.activity.butabu.databinding.ActivityCategoryBinding
-import com.activity.butabu.databinding.ActivityDifficultyBinding
+import com.activity.butabu.objects.FireStoreRepository
 
 class CategoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCategoryBinding
@@ -32,6 +34,23 @@ class CategoryActivity : AppCompatActivity() {
         }
         binding.geri.setOnClickListener{
             finish()
+        }
+        listOf(binding.thing, binding.place, binding.food,binding.animal).forEach { view ->
+            view.setOnClickListener {
+                    button ->
+                binding.loading.visibility= View.VISIBLE
+                FireStoreRepository().fetchData(
+                    searchWith = "category",
+                    searchValue = "${button.tag}",
+                    onFetchComplete = {
+                        binding.loading.visibility= View.INVISIBLE
+                        Toast.makeText(this, "${button.tag}", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, GameActivity::class.java)
+                        startActivity(intent)
+                    }
+                )
+
+            }
         }
 
 
