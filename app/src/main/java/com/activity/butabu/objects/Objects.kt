@@ -1,59 +1,82 @@
 package com.activity.butabu.objects
 
 import com.activity.butabu.dataclasses.Words
+import com.activity.butabu.dataclasses.WordsSolo
 
 class Objects {
 
-    val wordList = ArrayList<Words>()
-    val usedWordList = ArrayList<Words>()
+    val wordList = ArrayList<WordsSolo>()
+    val usedWordList = ArrayList<WordsSolo>()
     init {
-        createWords()
+        createWordsSolo()
     }
 
-    private fun createWords(){
-        val prohibitedWords1 = listOf("Zəng", "Mobil", "Cihaz", "Nömrə")
-        val prohibitedWords2 = listOf("Oxumaq", "Roman", "Cild", "Səhifə")
-        val prohibitedWords3 = listOf("Laptop", "Texnologiya", "İnternet", "Ekran")
-        val prohibitedWords4 = listOf("Maşın", "Sürmək", "Təkər", "Yol")
-        val prohibitedWords5 = listOf("Su", "Dalğa", "Göl", "Qum")
-        val prohibitedWords6 = listOf("Ev", "Qadın", "Yemək", "Təmizlik")
-        val prohibitedWords7 = listOf("Musiqi", "Çalmaq", "Səs", "Alət")
-        val prohibitedWords8 = listOf("Damcı", "Bulud", "Yağmaq", "Hava")
-        val prohibitedWords9 = listOf("Top", "Komanda", "Oyun", "Qapı")
-        val prohibitedWords10 = listOf("İşıq", "Ulduz", "İsti", "Gecə")
-        val prohibitedWords11 = listOf("Nişan", "Gəlin", "Bəy", "Məclis")
-        val prohibitedWords12 = listOf("Şüşə", "Divar", "Açmaq", "Bağlamaq")
-        val prohibitedWords13 = listOf("Valyuta", "Bank", "Məzənnə", "Kağız")
-        val prohibitedWords14 = listOf("Gülmək", "Film", "Zarafat", "Tamaşa")
-        val prohibitedWords15 = listOf("Təyyarə", "Hava", "Qanad", "Səyahət")
-        val prohibitedWords16 = listOf("İçmək", "Su", "İsti", "Şirin")
-        val prohibitedWords17 = listOf("Bitki", "Ağac", "Çiçək", "Toxum")
-        val prohibitedWords18 = listOf("Tütün", "Çəkmək", "Alov", "Duman")
-        val prohibitedWords19 = listOf("Musiqi", "Alət", "Klaviatura", "Çalmaq")
-        val prohibitedWords20 = listOf("Texnologiya", "İnternet", "Ekran", "Maus")
+    private fun createWordsSolo(){
+        val categoryAnimals = listOf(
+            Words("Pişik", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Qat", "Kiçik", "Dost", "Gözəl", "Yemək")),
+            Words("İt", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Dost", "Böyük", "Qat", "Gözəl", "Yemək")),
+            Words("At", "Heyvan", "sade", "azerbaycan", listOf("Yarış", "Böyük", "Kənd", "Dost", "Yük", "Sürüş")),
+            Words("İnək", "Heyvan", "sade", "azerbaycan", listOf("Kənd", "Süd", "Böyük", "Qoyun", "Yemək", "Yük")),
+            Words("Qoyun", "Heyvan", "sade", "azerbaycan", listOf("Kənd", "Yemək", "Yük", "Qoyunçuluq", "Süd", "Tüy")),
+            Words("Maldar", "Heyvan", "sade", "azerbaycan", listOf("Kənd", "Qoyun", "İnək", "Yük", "Süd", "Yemək")),
+            Words("Dəvə", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Yük", "Böyük", "Kənd", "Süd", "Sürüş")),
+            Words("Gəmirici", "Heyvan", "sade", "azerbaycan", listOf("Kiçik", "Ev", "Qida", "Təhlükəsiz", "Tüy", "Şişkin")),
+            Words("Tülkü", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Kiçik", "Qızıl", "Həddindən artıq", "Qida", "Dost")),
+            Words("Kərtənkələ", "Heyvan", "sade", "azerbaycan", listOf("Bağ", "Kiçik", "Dost", "Yerdə", "Sürünən", "Yemək")),
+            Words("Maral", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Qış", "Süd", "Dost", "Yük")),
+            Words("Geyik", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Süd", "Yük", "Qış", "Yemək")),
+            Words("Sincap", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Kiçik", "Yemək", "Dost", "Şirin", "Qida")),
+            Words("Ayı", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Qış", "Yemək", "Dost", "Süd")),
+            Words("Canavar", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Dost", "Yemək", "Qida", "Şirin")),
+            Words("Qırmızı", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yemək", "Dost", "Qida", "Süd")),
+            Words("Kərtənkələ", "Heyvan", "sade", "azerbaycan", listOf("Yerdə", "Kiçik", "Şirin", "Dost", "Yemək", "Sürünən")),
+            Words("Kanguru", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Sıçrayış", "Yük", "Yemək", "Dost")),
+            Words("Ceyran", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Yemək", "Qida", "Dost", "Böyük", "Qış")),
+            Words("Tülkü", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Yırtıcı", "Sürünən", "Gizli", "Yemək", "Dost")),
+            Words("Filan", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yemək", "Dost", "Qida", "Süd")),
+            Words("Quş", "Heyvan", "sade", "azerbaycan", listOf("Hava", "Uçan", "Səhər", "Yemək", "Tüy", "Dost")),
+            Words("Aqsaqqal", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yemək", "Qida", "Dost", "Süd")),
+            Words("Tülkü", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Yırtıcı", "Şirin", "Gizli", "Dost", "Yemək")),
+            Words("Hippopotam", "Heyvan", "sade", "azerbaycan", listOf("Çay", "Böyük", "Suda", "Yemək", "Dost", "Qida")),
+            Words("Züraf", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Dost", "Qida", "Süd")),
+            Words("Şir", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yırtıcı", "Dost", "Yemək", "Qida")),
+            Words("Pələng", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Yırtıcı", "Böyük", "Yemək", "Dost", "Qida")),
+            Words("Qartal", "Heyvan", "sade", "azerbaycan", listOf("Hava", "Uçan", "Yırtıcı", "Yemək", "Dost", "Tüy")),
+            Words("Sırtlan", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Yırtıcı", "Yemək", "Dost", "Qida", "Şirin")),
+            Words("Tısbağa", "Heyvan", "sade", "azerbaycan", listOf("Yerdə", "Kiçik", "Dost", "Yemək", "Qida", "Şirin")),
+            Words("Müxərrik", "Heyvan", "sade", "azerbaycan", listOf("Kənd", "Kiçik", "Dost", "Yemək", "Qida", "Şirin")),
+            Words("Quzu", "Heyvan", "sade", "azerbaycan", listOf("Kənd", "Süd", "Kiçik", "Dost", "Yemək", "Qida")),
+            Words("Cavan", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Kiçik", "Yemək", "Dost", "Qida", "Şirin")),
+            Words("Kükürt", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Kiçik", "Südlü", "Dost", "Yemək", "Qida")),
+            Words("Kalıx", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Yemək", "Dost", "Böyük", "Qida", "Şirin")),
+            Words("Sivri", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Südlü", "Dost", "Yemək", "Şirin", "Qida")),
+            Words("Çinçilla", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Kiçik", "Şirin", "Dost", "Yemək", "Qida")),
+            Words("Səhra", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Kiçik", "Dost", "Yemək", "Qida", "Şirin")),
+            Words("Quş", "Heyvan", "sade", "azerbaycan", listOf("Hava", "Uçan", "Yemək", "Qida", "Dost", "Şirin")),
+            Words("Həvəskar", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Yemək", "Dost", "Şirin", "Kiçik", "Qida")),
+            Words("Dünyalı", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Dost", "Şirin", "Qida")),
+            Words("Dodaqlı", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Kiçik", "Dost", "Şirin", "Qida", "Yemək")),
+            Words("Gözəl", "Heyvan", "sade", "azerbaycan", listOf("Böyük", "Səhra", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Gəmirici", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Kiçik", "Dost", "Yemək", "Qida", "Şirin")),
+            Words("Əkiz", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Kiçik", "Yemək", "Dost", "Şirin", "Qida")),
+            Words("Çığır", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yemək", "Dost", "Şirin", "Qida")),
+            Words("Kəklik", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Büyücü", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Kiçik", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Mənzərə", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Sivri", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Kiçik", "Dost", "Şirin", "Yemək", "Qida")),
+            Words("Cəngavər", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Gözəl", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Kiçik", "Dost", "Şirin", "Yemək", "Qida")),
+            Words("Çürük", "Heyvan", "sade", "azerbaycan", listOf("Ev", "Kiçik", "Dost", "Şirin", "Yemək", "Qida")),
+            Words("Doymuş", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Sırtlan", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Kiçik", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Çiçəklənmiş", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Məğlubiyyət", "Heyvan", "sade", "azerbaycan", listOf("Meşə", "Böyük", "Yemək", "Şirin", "Dost", "Qida")),
+            Words("Fəsil", "Heyvan", "sade", "azerbaycan", listOf("Səhra", "Böyük", "Yemək", "Şirin", "Dost", "Qida"))
+        )
 
-        val word1 = Words("Telefon", "category1", "sade", "language1", prohibitedWords1)
-        val word2 = Words("Kitab", "category2", "sade", "language2", prohibitedWords2)
-        val word3 = Words("Komputer", "category3", "sade", "language3", prohibitedWords3)
-        val word4 = Words("Avtomobil", "category4", "sade", "language4", prohibitedWords4)
-        val word5 = Words("Dəniz", "category5", "sade", "language5", prohibitedWords5)
-        val word6 = Words("Evdar", "category6", "sade", "language6", prohibitedWords6)
-        val word7 = Words("Gitar", "category7", "sade", "language7", prohibitedWords7)
-        val word8 = Words("Yağış", "category8", "sade", "language8", prohibitedWords8)
-        val word9 = Words("Futbol", "category9", "sade", "language9", prohibitedWords9)
-        val word10 = Words("Günəş", "category10", "sade", "language10", prohibitedWords10)
-        val word11 = Words("Toy", "category11", "sade", "language11", prohibitedWords11)
-        val word12 = Words("Pəncərə", "category12", "sade", "language12", prohibitedWords12)
-        val word13 = Words("Pul", "category13", "sade", "language13", prohibitedWords13)
-        val word14 = Words("Komediya", "category14", "sade", "language14", prohibitedWords14)
-        val word15 = Words("Uçmaq", "category15", "sade", "language15", prohibitedWords15)
-        val word16 = Words("Çay", "category16", "sade", "language16", prohibitedWords16)
-        val word17 = Words("Bağ", "category17", "sade", "language17", prohibitedWords17)
-        val word18 = Words("Siqaret", "category18", "sade", "language18", prohibitedWords18)
-        val word19 = Words("Piano", "category19", "sade", "language19", prohibitedWords19)
-        val word20 = Words("Kompüter", "category20", "sade", "language20", prohibitedWords20)
 
-        for (i in listOf(word1, word2, word3, word4, word5, word6, word7, word8, word9, word10, word11, word12, word13, word14, word15, word16, word17, word18, word19, word20)){
+
+        for (i in categoryAnimals){
             FireStoreRepository().writeData(i)
         }
     }

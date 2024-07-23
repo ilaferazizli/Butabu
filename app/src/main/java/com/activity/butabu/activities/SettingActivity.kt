@@ -26,6 +26,9 @@ class SettingActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadSettings()
+        binding.backBack.setOnClickListener {
+            finish()
+        }
         binding.saveSettings.setOnClickListener {
             saveSettings()
             finish()
