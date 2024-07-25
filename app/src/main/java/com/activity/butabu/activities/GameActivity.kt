@@ -163,7 +163,6 @@ class GameActivity : AppCompatActivity() {
             when(button.id){
                 R.id.cancel -> {
                     if(!Team1.played){
-                        Team1.totalCorrect++
                         binding.team1.text = Team1.totalCorrect.toString()
                     }
                     else{
